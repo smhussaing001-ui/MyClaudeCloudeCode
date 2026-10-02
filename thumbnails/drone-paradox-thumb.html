@@ -1,0 +1,155 @@
+<meta charset="utf-8"><title>Drone Paradox Thumbnail Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1014;--pnl:#171b21;--tx:#e7ecf2;--mut:#8b96a5;--acc:#ff8a1f}
+body{margin:0;background:var(--bg);color:var(--tx);font:13px/1.45 Archivo,system-ui,sans-serif;display:flex;gap:18px;padding:18px;flex-wrap:wrap}
+#stage{flex:1 1 720px;min-width:320px}
+canvas{width:100%;max-width:1280px;aspect-ratio:16/9;background:#000;border-radius:8px;display:block}
+#panel{width:290px;background:var(--pnl);padding:14px;border-radius:8px;height:fit-content}
+h4{margin:14px 0 6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+h4:first-child{margin-top:0}
+input,textarea,select,button{width:100%;box-sizing:border-box;background:#0d1014;color:var(--tx);border:1px solid #2a323c;border-radius:5px;padding:7px;font:inherit}
+input[type=range]{padding:0;border:0}input[type=color]{height:34px;padding:2px}
+button{background:var(--acc);color:#111;border:0;font-weight:800;cursor:pointer;padding:10px;margin-top:8px}
+button.alt{background:#2a323c;color:var(--tx)}
+.row{display:flex;gap:6px}.row>*{flex:1}
+small{color:var(--mut);display:block;margin-top:8px;line-height:1.5}
+</style>
+<div id="stage"><canvas id="c" width="1280" height="720"></canvas>
+<small>1280&times;720. Load a background plate + a transparent-PNG cutout of the subject. Everything else is drawn live. Preview shrinks to fit; export is always full res.</small></div>
+<div id="panel">
+<h4>Preset</h4>
+<select id="preset"><option value="bb">Bloomberg &mdash; cinematic, desaturated</option><option value="ts">Think School &mdash; punchy, outlined</option></select>
+<h4>Background plate</h4><input type="file" id="fbg" accept="image/*">
+<h4>Subject cutout (PNG)</h4><input type="file" id="fsub" accept="image/*">
+<div class="row"><span><h4>Scale</h4><input type="range" id="sscale" min="20" max="160" value="88"></span><span><h4>X</h4><input type="range" id="sx" min="0" max="100" value="76"></span><span><h4>Y</h4><input type="range" id="sy" min="0" max="100" value="52"></span></div>
+<h4>Title &mdash; {braces} = accent word</h4><textarea id="title" rows="3">THE $500
+{DRONE} THAT
+BEAT A TANK</textarea>
+<div class="row"><span><h4>Size</h4><input type="range" id="tsize" min="50" max="140" value="92"></span><span><h4>Accent</h4><input type="color" id="acc" value="#ff8a1f"></span></div>
+<h4>Kicker (small top line)</h4><input id="kick" value="THE DRONE PARADOX">
+<div class="row"><span><h4>Drones</h4><input type="range" id="nd" min="0" max="16" value="9"></span><span><h4>Mesh links</h4><input type="range" id="link" min="0" max="100" value="55"></span></div>
+<div class="row"><span><h4>BG blur</h4><input type="range" id="blur" min="0" max="16" value="6"></span><span><h4>Grain</h4><input type="range" id="grain" min="0" max="20" value="7"></span></div>
+<button id="dl">Download PNG (1280x720)</button>
+<button id="shuf" class="alt">Reshuffle drone swarm</button>
+</div>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d'),W=1280,H=720;
+let bg=null,sub=null,seed=7;
+const $=i=>document.getElementById(i);
+const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+let swarm=[];
+function makeSwarm(){seed=Math.floor(Math.random()*99999)+1;swarm=[];for(let i=0;i<16;i++)swarm.push({x:.08+rnd()*.86,y:.20+rnd()*.52,s:.35+rnd()*.85,r:(rnd()-.5)*.35,a:.45+rnd()*.55});}
+makeSwarm();
+
+function procBG(){
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1b2a33');g.addColorStop(.55,'#101820');g.addColorStop(1,'#070a0d');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  let s2=42;const r=()=>(s2=(s2*16807)%2147483647)/2147483647;
+  x.save();x.filter='blur(60px)';
+  for(let i=0;i<5;i++){x.fillStyle='rgba('+(200+r()*55|0)+','+(90+r()*60|0)+','+(20+r()*30|0)+',.30)';x.beginPath();x.arc(r()*W,H*.5+r()*H*.35,120+r()*200,0,7);x.fill();}
+  x.restore();
+  x.fillStyle='rgba(6,9,12,.92)';x.beginPath();x.moveTo(0,H);let px=0,py=H*.72;x.lineTo(0,py);
+  while(px<W){const w=25+r()*90;py=H*(.60+r()*.20);x.lineTo(px,py);x.lineTo(px+w,py);px+=w;}
+  x.lineTo(W,H);x.closePath();x.fill();
+}
+
+function procSubject(cx,cy,h,acc){
+  x.save();x.translate(cx,cy);const u=h/100;
+  x.fillStyle='#0a0d11';
+  x.beginPath();x.moveTo(-62*u,60*u);x.quadraticCurveTo(-58*u,4*u,0,-2*u);x.quadraticCurveTo(58*u,4*u,62*u,60*u);x.closePath();x.fill();
+  x.beginPath();x.ellipse(0,-38*u,30*u,38*u,0,0,7);x.fill();
+  x.fillStyle='#151a20';x.fillRect(-34*u,-52*u,68*u,26*u);
+  x.fillStyle=acc;x.globalAlpha=.85;x.fillRect(-29*u,-47*u,24*u,15*u);x.fillRect(5*u,-47*u,24*u,15*u);x.globalAlpha=1;
+  x.strokeStyle='#151a20';x.lineWidth=3*u;x.beginPath();x.moveTo(26*u,-52*u);x.lineTo(34*u,-76*u);x.stroke();
+  x.restore();
+}
+
+function drone(px,py,s,rot,alpha,acc){
+  x.save();x.translate(px,py);x.rotate(rot);x.globalAlpha=alpha;
+  x.fillStyle='#05080b';x.strokeStyle='#05080b';x.lineWidth=3.2*s;x.lineCap='round';
+  const a=17*s;
+  x.beginPath();x.moveTo(-a,-a);x.lineTo(a,a);x.moveTo(a,-a);x.lineTo(-a,a);x.stroke();
+  x.beginPath();x.roundRect(-9*s,-6*s,18*s,12*s,3*s);x.fill();
+  x.strokeStyle='rgba(5,8,11,.75)';x.lineWidth=1.6*s;
+  [[-a,-a],[a,-a],[a,a],[-a,a]].forEach(p=>{x.beginPath();x.ellipse(p[0],p[1],11*s,3.4*s,0,0,7);x.stroke();});
+  x.fillStyle=acc;x.globalAlpha=alpha*.9;x.beginPath();x.arc(0,0,2.4*s,0,7);x.fill();
+  x.restore();
+}
+
+function outlined(img,dx,dy,dw,dh,px,col){
+  const t=document.createElement('canvas');t.width=Math.max(1,dw|0);t.height=Math.max(1,dh|0);const q=t.getContext('2d');
+  q.drawImage(img,0,0,t.width,t.height);q.globalCompositeOperation='source-in';q.fillStyle=col;q.fillRect(0,0,t.width,t.height);
+  for(let i=0;i<16;i++){const a=i/16*Math.PI*2;x.drawImage(t,dx+Math.cos(a)*px,dy+Math.sin(a)*px,dw,dh);}
+}
+
+let grainCv=null;
+function grain(amt){
+  if(!amt)return;
+  if(!grainCv){grainCv=document.createElement('canvas');grainCv.width=grainCv.height=260;const g=grainCv.getContext('2d');
+    const d=g.createImageData(260,260);for(let i=0;i<d.data.length;i+=4){const v=Math.random()*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255;}g.putImageData(d,0,0);}
+  x.save();x.globalAlpha=amt/100;x.globalCompositeOperation='overlay';
+  for(let i=0;i<W;i+=260)for(let j=0;j<H;j+=260)x.drawImage(grainCv,i,j);
+  x.restore();
+}
+
+function draw(){
+  const P=$('preset').value, acc=$('acc').value, sat=P==='bb'?0.42:0.85, lift=P==='bb'?0.62:0.78;
+  x.clearRect(0,0,W,H);
+  x.save();x.filter='blur('+$('blur').value+'px) saturate('+sat+') brightness('+lift+')';
+  if(bg){const r=Math.max(W/bg.width,H/bg.height),w=bg.width*r,h=bg.height*r;x.drawImage(bg,(W-w)/2,(H-h)/2,w,h);}else procBG();
+  x.restore();
+  const sxp=$('sx').value/100;
+  let g=x.createRadialGradient(W*sxp,H*.5,20,W*sxp,H*.5,H*.85);
+  g.addColorStop(0,acc+'44');g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+
+  const n=+$('nd').value, thr=+$('link').value/100*430, pts=swarm.slice(0,n).map(d=>({s:d.s,r:d.r,a:d.a,px:d.x*W,py:d.y*H}));
+  x.strokeStyle=acc;x.lineWidth=1.2;
+  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+    const dx=pts[i].px-pts[j].px,dy=pts[i].py-pts[j].py,d=Math.hypot(dx,dy);
+    if(d<thr){x.globalAlpha=(1-d/thr)*.38;x.beginPath();x.moveTo(pts[i].px,pts[i].py);x.lineTo(pts[j].px,pts[j].py);x.stroke();}
+  }
+  x.globalAlpha=1;
+  pts.forEach(d=>drone(d.px,d.py,d.s,d.r,d.a,acc));
+
+  g=x.createLinearGradient(0,0,W*.72,0);g.addColorStop(0,'rgba(4,6,9,.88)');g.addColorStop(1,'rgba(4,6,9,0)');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+
+  const h=H*(+$('sscale').value/100)*1.15, cx=W*sxp, cy=H*($('sy').value/100);
+  if(sub){const w=sub.width/sub.height*h, dx=cx-w/2, dy=cy-h/2;
+    x.save();x.shadowColor='rgba(0,0,0,.85)';x.shadowBlur=45;x.shadowOffsetY=14;
+    if(P==='ts')outlined(sub,dx,dy,w,h,7,'#ffffff');
+    x.filter=P==='bb'?'contrast(1.1) saturate(.85)':'contrast(1.16) saturate(1.15)';
+    x.drawImage(sub,dx,dy,w,h);x.restore();
+  } else procSubject(cx,cy+h*.14,h*.62,acc);
+
+  g=x.createLinearGradient(0,H*.55,0,H);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.8)');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+
+  const k=$('kick').value.trim();let y=112;
+  x.textBaseline='alphabetic';
+  if(k){x.font='800 26px Archivo, sans-serif';x.fillStyle=acc;x.fillRect(64,y-30,7,30);
+    x.fillStyle='#dfe6ee';x.globalAlpha=.92;x.letterSpacing='4px';x.fillText(k.toUpperCase(),82,y-7);x.letterSpacing='0px';x.globalAlpha=1;y+=42;}
+  const fs=+$('tsize').value;x.font=fs+'px Anton, Impact, sans-serif';x.textBaseline='top';
+  $('title').value.toUpperCase().split('\n').forEach(line=>{
+    let cxx=64;
+    line.split(/(\{[^}]*\})/).filter(Boolean).forEach(tok=>{
+      const hot=tok[0]==='{';const t=hot?tok.slice(1,-1):tok;
+      x.save();x.shadowColor='rgba(0,0,0,.75)';x.shadowBlur=18;x.shadowOffsetY=4;
+      x.fillStyle=hot?acc:'#ffffff';x.fillText(t,cxx,y);x.restore();
+      cxx+=x.measureText(t).width;
+    });
+    y+=fs*0.96;
+  });
+  grain(+$('grain').value);
+}
+
+function load(f,cb){if(!f)return;const r=new FileReader();r.onload=e=>{const i=new Image();i.onload=()=>{cb(i);draw();};i.src=e.target.result;};r.readAsDataURL(f);}
+$('fbg').onchange=e=>load(e.target.files[0],i=>bg=i);
+$('fsub').onchange=e=>load(e.target.files[0],i=>sub=i);
+$('shuf').onclick=()=>{makeSwarm();draw();};
+$('preset').onchange=e=>{$('acc').value=e.target.value==='bb'?'#ff8a1f':'#ff2f3c';draw();};
+$('dl').onclick=()=>{const a=document.createElement('a');a.download='drone-paradox-thumb.png';a.href=c.toDataURL('image/png');a.click();};
+document.querySelectorAll('input,textarea,select').forEach(el=>el.addEventListener('input',draw));
+(document.fonts?document.fonts.ready:Promise.resolve()).then(draw);setTimeout(draw,700);
+</script>

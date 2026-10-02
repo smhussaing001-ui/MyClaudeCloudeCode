@@ -1,0 +1,71 @@
+{
+  "_rules": "SHUFFLE-SAFE: every script must stand alone, because segments may be reordered later. No back- or forward-references (instead / also / moving forward / finally / next / earlier / as mentioned / the other), no ordinals or countdown position, no dependency on an adjacent item having introduced a company. Each opens by naming its own subject. Generic list references ('unlike other lifts on our list') are fine: they point at the set, not at a neighbour.",
+  "1": {
+    "name": "SARENS",
+    "script": "Sarens is a Belgian multinational specialising in crane rental and heavy lifting. In the United Kingdom, the company faced a problem most contractors would rather avoid: placing two prefabricated bridge segments, each weighing about four hundred forty tons and measuring one hundred thirty one by thirty three feet. The segments travelled on self propelled modular transporters, then by barge to the bridge site. A floating gantry rated at five hundred tons, with a ninety eight foot outreach, lifted each one onto its piers. It's noteworthy that the whole procedure took roughly one day per segment."
+  },
+  "2": {
+    "name": "SARENS TRANSPORTS 391T TOWER",
+    "script": "In two thousand sixteen, Sarens was asked to move a three hundred ninety one tonne propylene rectifying tower from Houston to Port Arthur, Texas. The tower measured two hundred sixty six feet long and sixteen feet across, and the route ran two hundred fifty miles over both land and water. Sarens carried it on a trailer with twenty four axles and one hundred ninety two wheels, fitted with hydraulic suspension and steering. The advantages include tight control over load distribution. Police escorts and utility crews cleared the way ahead of it."
+  },
+  "3": {
+    "name": "MAXIM CRANE WORKS",
+    "script": "Maxim Crane Works handled a coal conveyor rated to move fifteen hundred tons of coal an hour. The difficulty was its mass, split across three columns of roughly three hundred fifty thousand pounds each, and three cradle booms reaching eight hundred fifty thousand pounds apiece. Two separate twenty seven axle Goldhofer transporters carried the sections to a river terminal. Cranes lifted them into position, chains and straps secured them, and hydraulic jacks lowered the assembly onto waiting barges."
+  },
+  "4": {
+    "name": "TNT CRANE & RIGGING",
+    "script": "T N T Crane and Rigging is one of North America's largest crane rental companies, running more than six hundred twenty cranes with capacities from eighteen to thirteen hundred tons. On Texas highways two eighty eight and eighty two, the company had to place bridge column caps weighing two hundred thousand pounds, part of a widening scheme intended to improve mobility and safety. An eight hundred ton Demag A C seven hundred did the lifting, with a one hundred ninety seven foot boom and a one hundred sixty four foot jib, working from a purpose built platform."
+  },
+  "5": {
+    "name": "TNT CRANE & RIGGING MANITOWOC 18000",
+    "script": "Unlike other lifts on our list, this job moved a crane rather than a load. In Texas in two thousand nineteen, T N T Crane and Rigging carried a one hundred twenty ton mobile hydraulic crane across a canal, so it could raise a one hundred seventy foot utility pole on the far bank. The Manitowoc eighteen thousand did the carrying: eight hundred fifty tons of capacity, and a maximum boom length of six hundred feet. Balancing the suspended crane took several hours of deliberate, incremental movement."
+  },
+  "6": {
+    "name": "HAYDON BRIDGE COMPANY",
+    "script": "Haydon Bridge Company has built bridges in Kentucky since nineteen seventy two, for government and commercial clients alike. Here the crew is setting beams for a new crossing, with two cranes lifting each beam onto concrete piers. The work formed part of the K Y four sixty one improvement scheme, carried out for the Kentucky Transportation Cabinet."
+  },
+  "7": {
+    "name": "FAGIOLI BLAST FURNACE REPLACEMENT",
+    "script": "Fagioli specialises in transporting and hauling industrial equipment. At a French steel plant, the company was asked to replace the entire top section of a blast furnace, the structure that melts iron from ore and coal. That section weighed around one thousand nine hundred eighty four tons and measured forty nine feet across. The real constraint was time: under two weeks, against a conventional six months. Fagioli used a skidding system and a custom built gantry crane, and set a record for the operation."
+  },
+  "8": {
+    "name": "PETERBILT 367H TRUCK",
+    "script": "The Peterbilt three sixty seven H, run here by Pesado Transport, is a vocational truck built around a one hundred twenty three inch bumper to back of cab dimension. Two axle configurations are offered, with tandem, tridem and lift axle options beyond that. Inside there's an ergonomic dash with burl wood grain, L E D backlit gauges, five grab handles and a substantial heating and cooling system. Full or partial frame liners can be specified, along with a rear engine power take off and a sixteen hundred sixty nine square inch cooling package."
+  },
+  "9": {
+    "name": "MAN TGX 41.680",
+    "script": "The M A N T G X forty one point six eighty is built in an eight by four by four configuration, which puts drive and steering where a heavy haulage tractor needs them. It's noteworthy that this truck was engineered as much around fuel handling as outright pulling power, an unusual emphasis in a class where consumption is normally treated as unavoidable. The result is a machine intended for sustained, complicated work rather than short bursts of it."
+  },
+  "10": {
+    "name": "MERCEDES AROCS 4163 SLT",
+    "script": "The Mercedes Arocs forty one sixty three S L T is a two hundred fifty ton tractor, and here comfort matters as much as capacity, because the driver spends long hours at very low speed. It is offered with GigaSpace and BigSpace cabs, both intended for working and living in. A dedicated cooling circuit extends engine and retarder runtime, while the turbo retarder clutch smooths moving off under load. Drive programmes match the driving mode to the task in hand."
+  },
+  "11": {
+    "name": "KENWORTH K200",
+    "script": "The Kenworth K two hundred runs a Cummins X fifteen Euro five engine, and is available as a six by four, an eight by four, an eight by six or a ten by six. Access is the quiet problem it solves: unlock the door, and non slip surfaces and L E D lighting in the cab footwells switch on automatically. A full length top step and well placed grab rails let the driver keep three points of contact throughout. The daylight door design gives an unusually clear view down both sides."
+  },
+  "12": {
+    "name": "SMGT RIG MOVE WITH KENWORTH 963",
+    "script": "S M G T runs this rig move with a Kenworth nine sixty three, a truck built for difficult ground rather than difficult distance. Planetary reduction axles, low ground pressure and sand tyres at the rear give it flotation across desert terrain that would strand a conventional tractor. Three variants are offered, each tuned to a different industry, with stacked frame rails adding strength for oil field work and off road transport. At the top of the range sits a one hundred twenty thousand pound model, aimed squarely at sustained oil and gas haulage."
+  },
+  "13": {
+    "name": "MOL HF 5066",
+    "script": "The M O L H F fifty sixty six is built for loads that resist being moved at all. A Cummins I S X fifteen supplies the torque, paired with an Allison six speed fully automatic overdrive. Five road going ratios, a crawler gear and a two ratio transfer box give it an unusually wide spread. Curb weight is fifty two tons, top geared road speed is fifty five kilometres an hour, and it will pull four hundred tons on the level, or two hundred thirty tons on a fifteen percent gradient."
+  },
+  "14": {
+    "name": "MOL HF 8066",
+    "script": "The M O L H F eighty sixty six is a heavy duty truck set up for long distance haulage. A Cummins X fifteen drives through a Dana Powershift eight thousand series transmission rated at six hundred twenty five horsepower. The oil field chassis is fabricated from high strength steel, and its proportions are chosen for stability and service life rather than appearance. Air suspension and anti lock brakes are available, and the cab is arranged for drivers who will be sitting in it a very long time."
+  },
+  "15": {
+    "name": "PAUL AGRO MOVER 2051AK 4X4",
+    "script": "The Paul Agro Mover twenty fifty one A K four by four is based on the Mercedes Benz Arocs of the same designation, adapted for agricultural and forestry work. The chassis carries a four thousand two hundred millimetre wheelbase. Its O M four seventy one engine produces two thousand five hundred newton metres of torque at eleven hundred revolutions, and three hundred seventy five kilowatts, or five hundred ten horsepower, at eighteen hundred. A load sensing hydraulic system delivers two hundred forty litres a minute at two hundred ten bar."
+  },
+  "16": {
+    "name": "TITAN OIL FIELD TRUCKS",
+    "script": "Titan builds heavy duty tractors for oil field operations, in six by six and eight by eight configurations. A double frame provides the underlying strength. The drivetrain and cab come from Mercedes Benz, with the electrical system serviceable through M B diagnosis, and a converter clutch unit improves both drive off and climbing performance. Kessler drive axles are fitted, and tyre pressure control allows the same truck to work public roads and soft ground without compromise."
+  },
+  "17": {
+    "name": "NICOLAS TRACTOMAS D75 8X8",
+    "script": "The Nicolas Tractomas D seventy five eight by eight is a built to order ballast tractor, made to tow hydraulic modular trailers and road trains carrying oversized loads. It came from the French manufacturer Nicolas Industrie, and the line ran from nineteen seventy nine until two thousand sixteen. It's noteworthy that a relative of this machine, the Tractomas D one hundred, was recognised by Guinness World Records in twenty fifteen as the largest road truck in the world, at seventy one tons."
+  }
+}

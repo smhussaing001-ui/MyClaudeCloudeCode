@@ -1,0 +1,78 @@
+{
+  "_source": "read from cropped caption strips off the timeline, 2026-07-28",
+  "_note": "Source 1 (items 1-7) shows its caption ~2s after the marker; source 2 (items 8-17) has the marker AT the caption, which animates out within ~40-60f. Items 8 and 9 had to be grabbed at offset 0.",
+  "items": {
+    "1": {
+      "name": "SARENS",
+      "link": "WWW.SARENS.COM"
+    },
+    "2": {
+      "name": "YILPORT HOLDING",
+      "link": "WWW.YILPORT.COM"
+    },
+    "18": {
+      "name": "NICOLAS TRACTOMAS D75 8X8",
+      "link": "WWW.TII-GROUP.COM"
+    },
+    "17": {
+      "name": "TITAN OIL FIELD TRUCKS",
+      "link": "WWW.BLCS-TITAN.COM"
+    },
+    "16": {
+      "name": "PAUL AGRO MOVER 2051AK 4X4",
+      "link": "WWW.PAUL-NUTZFAHRZEUGE.DE"
+    },
+    "15": {
+      "name": "MOL HF 8066",
+      "link": "WWW.MOLCY.COM"
+    },
+    "14": {
+      "name": "MOL HF 5066",
+      "link": "WWW.MOLCY.COM"
+    },
+    "13": {
+      "name": "SMGT RIG MOVE WITH KENWORTH 963",
+      "link": "WWW.SMGTUAE.COM"
+    },
+    "12": {
+      "name": "KENWORTH K200",
+      "link": "WWW.CENTURION.NET.AU"
+    },
+    "11": {
+      "name": "MERCEDES AROCS 4163 SLT",
+      "link": "WWW.MERCEDES-BENZ-TRUCKS.COM"
+    },
+    "10": {
+      "name": "MAN TGX 41.680",
+      "link": "WWW.KUEBLER-SPEDITION.DE"
+    },
+    "9": {
+      "name": "PETERBILT 367H TRUCK",
+      "link": "WWW.PESADOTRANSPORT.COM"
+    },
+    "8": {
+      "name": "FAGIOLI BLAST FURNACE REPLACEMENT",
+      "link": "WWW.FAGIOLI.COM"
+    },
+    "7": {
+      "name": "HAYDON BRIDGE COMPANY",
+      "link": "WWW.HAYDONBRIDGECOMPANY.COM"
+    },
+    "6": {
+      "name": "TNT CRANE & RIGGING MANITOWOC 18000",
+      "link": "WWW.TNTCRANE.COM"
+    },
+    "5": {
+      "name": "TNT CRANE & RIGGING",
+      "link": "WWW.TNTCRANE.COM"
+    },
+    "4": {
+      "name": "MAXIM CRANE WORKS",
+      "link": "WWW.MAXIMCRANE.COM"
+    },
+    "3": {
+      "name": "SARENS TRANSPORTS 391T TOWER",
+      "link": "WWW.SARENS.COM"
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "fps": 30.0,
+  "start": 108000,
+  "end": 157584,
+  "items": [
+    {
+      "n": 1,
+      "frame": 108580,
+      "tc": "01:00:19:10",
+      "span_end": 110919,
+      "len_frames": 2339,
+      "len_s": 78.0,
+      "color": "Blue",
+      "marker_name": "Marker 1",
+      "note": "SARENS | WWW.SARENS.COM"
+    },
+    {
+      "n": 2,
+      "frame": 110919,
+      "tc": "01:01:37:09",
+      "span_end": 113875,
+      "len_frames": 2956,
+      "len_s": 98.5,
+      "color": "Blue",
+      "marker_name": "Marker 2",
+      "note": "YILPORT HOLDING | WWW.YILPORT.COM"
+    },
+    {
+      "n": 3,
+      "frame": 113875,
+      "tc": "01:03:15:25",
+      "span_end": 118000,
+      "len_frames": 4125,
+      "len_s": 137.5,
+      "color": "Blue",
+      "marker_name": "Marker 2",
+      "note": "SARENS TRANSPORTS 391T TOWER | WWW.SARENS.COM"
+    },
+    {
+      "n": 4,
+      "frame": 118000,
+      "tc": "01:05:33:10",
+      "span_end": 120195,
+      "len_frames": 2195,
+      "len_s": 73.2,
+      "color": "Blue",
+      "marker_name": "Marker 3",
+      "note": "MAXIM CRANE WORKS | WWW.MAXIMCRANE.COM"
+    },
+    {
+      "n": 5,
+      "frame": 120195,
+      "tc": "01:06:46:15",
+      "span_end": 124387,
+      "len_frames": 4192,
+      "len_s": 139.7,
+      "color": "Blue",
+      "marker_name": "Marker 4",
+      "note": "TNT CRANE & RIGGING | WWW.TNTCRANE.COM"
+    },
+    {
+      "n": 6,
+      "frame": 124387,
+      "tc": "01:09:06:07",
+      "span_end": 128022,
+      "len_frames": 3635,
+      "len_s": 121.2,
+      "color": "Blue",
+      "marker_name": "Marker 5",
+      "note": "TNT CRANE & RIGGING MANITOWOC 18000 | WWW.TNTCRANE.COM"
+    },
+    {
+      "n": 7,
+      "frame": 128022,
+      "tc": "01:11:07:12",
+      "span_end": 129062,
+      "len_frames": 1040,
+      "len_s": 34.7,
+      "color": "Blue",
+      "marker_name": "Marker 6",
+      "note": "HAYDON BRIDGE COMPANY | WWW.HAYDONBRIDGECOMPANY.COM"
+    },
+    {
+      "n": 8,
+      "frame": 129062,
+      "tc": "01:11:42:02",
+      "span_end": 133127,
+      "len_frames": 4065,
+      "len_s": 135.5,
+      "color": "Blue",
+      "marker_name": "Marker 7",
+      "note": "FAGIOLI BLAST FURNACE REPLACEMENT | WWW.FAGIOLI.COM"
+    },
+    {
+      "n": 9,
+      "frame": 133127,
+      "tc": "01:13:57:17",
+      "span_end": 135369,
+      "len_frames": 2242,
+      "len_s": 74.7,
+      "color": "Blue",
+      "marker_name": "Marker 8",
+      "note": "PETERBILT 367H TRUCK | WWW.PESADOTRANSPORT.COM"
+    },
+    {
+      "n": 10,
+      "frame": 135369,
+      "tc": "01:15:12:09",
+      "span_end": 137481,
+      "len_frames": 2112,
+      "len_s": 70.4,
+      "color": "Blue",
+      "marker_name": "Marker 9",
+      "note": "MAN TGX 41.680 | WWW.KUEBLER-SPEDITION.DE"
+    },
+    {
+      "n": 11,
+      "frame": 137481,
+      "tc": "01:16:22:21",
+      "span_end": 139298,
+      "len_frames": 1817,
+      "len_s": 60.6,
+      "color": "Blue",
+      "marker_name": "Marker 10",
+      "note": "MERCEDES AROCS 4163 SLT | WWW.MERCEDES-BENZ-TRUCKS.COM"
+    },
+    {
+      "n": 12,
+      "frame": 139298,
+      "tc": "01:17:23:08",
+      "span_end": 142352,
+      "len_frames": 3054,
+      "len_s": 101.8,
+      "color": "Blue",
+      "marker_name": "Marker 11",
+      "note": "KENWORTH K200 | WWW.CENTURION.NET.AU"
+    },
+    {
+      "n": 13,
+      "frame": 142352,
+      "tc": "01:19:05:02",
+      "span_end": 147608,
+      "len_frames": 5256,
+      "len_s": 175.2,
+      "color": "Blue",
+      "marker_name": "Marker 12",
+      "note": "SMGT RIG MOVE WITH KENWORTH 963 | WWW.SMGTUAE.COM"
+    },
+    {
+      "n": 14,
+      "frame": 147608,
+      "tc": "01:22:00:08",
+      "span_end": 149586,
+      "len_frames": 1978,
+      "len_s": 65.9,
+      "color": "Blue",
+      "marker_name": "Marker 13",
+      "note": "MOL HF 5066 | WWW.MOLCY.COM"
+    },
+    {
+      "n": 15,
+      "frame": 149586,
+      "tc": "01:23:06:06",
+      "span_end": 151634,
+      "len_frames": 2048,
+      "len_s": 68.3,
+      "color": "Blue",
+      "marker_name": "Marker 14",
+      "note": "MOL HF 8066 | WWW.MOLCY.COM"
+    },
+    {
+      "n": 16,
+      "frame": 151634,
+      "tc": "01:24:14:14",
+      "span_end": 153526,
+      "len_frames": 1892,
+      "len_s": 63.1,
+      "color": "Blue",
+      "marker_name": "Marker 15",
+      "note": "PAUL AGRO MOVER 2051AK 4X4 | WWW.PAUL-NUTZFAHRZEUGE.DE"
+    },
+    {
+      "n": 17,
+      "frame": 153526,
+      "tc": "01:25:17:16",
+      "span_end": 155237,
+      "len_frames": 1711,
+      "len_s": 57.0,
+      "color": "Blue",
+      "marker_name": "Marker 16",
+      "note": "TITAN OIL FIELD TRUCKS | WWW.BLCS-TITAN.COM"
+    },
+    {
+      "n": 18,
+      "frame": 155237,
+      "tc": "01:26:14:17",
+      "span_end": 157584,
+      "len_frames": 2347,
+      "len_s": 78.2,
+      "color": "Blue",
+      "marker_name": "Marker 17",
+      "note": "NICOLAS TRACTOMAS D75 8X8 | WWW.TII-GROUP.COM"
+    }
+  ]
+}

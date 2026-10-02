@@ -1,0 +1,34 @@
+# --- Media & large binaries (keep local / Dropbox) ---
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.psd
+*.xlsx
+*.drp
+
+# --- Generated pipeline output ---
+windows_pipeline/vo/
+windows_pipeline/stills/
+windows_pipeline/backup_pre_insert/vo/
+
+# --- Separate git repo (push on its own if needed) ---
+veo-videos/
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+
+# --- Secrets ---
+.env
+*.key
+
+# --- Local-only Claude settings & Office lock files ---
+.claude/settings.local.json
+~$*
