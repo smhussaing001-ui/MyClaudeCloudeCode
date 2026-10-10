@@ -1,0 +1,20 @@
+{
+  "name": "plan-executor",
+  "version": "0.1.0",
+  "description": "Intelligent plan executor: design, schedule and track your plans all day",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
+    "zod": "^4.6.5"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

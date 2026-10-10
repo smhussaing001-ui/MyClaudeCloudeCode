@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan Executor</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%232a78d6'/%3E%3Cpath d='M7 12l3 3 7-7' stroke='white' stroke-width='2.5' fill='none'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12l3 3 7-7"/></svg>
+      Plan Executor
+    </div>
+    <nav aria-label="Views">
+      <button data-view="today">Today</button>
+      <button data-view="plans">Plans</button>
+      <button data-view="insights">Insights</button>
+      <button data-view="settings">Settings</button>
+    </nav>
+    <div class="date-nav">
+      <button class="icon-btn" data-action="prev-day" aria-label="Previous day">‹</button>
+      <input type="date" id="date" aria-label="Date" />
+      <button class="icon-btn" data-action="next-day" aria-label="Next day">›</button>
+      <button class="btn small ghost" data-action="go-today">Today</button>
+      <span id="ai-pill" class="pill"></span>
+    </div>
+  </header>
+  <main id="app"></main>
+  <dialog id="modal"></dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
