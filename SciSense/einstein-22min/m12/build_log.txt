@@ -1,0 +1,13 @@
+assets imported
+S1 particles partial: ReferenceError: Function pw.property().property is undefined
+S1 built
+S2 built
+S3 built
+S4 built
+S5 built
+S6 dust partial: ReferenceError: Function dpw.property().property is undefined
+S6 built
+main comp built
+templates: AIFF 48kHz, Alpha Only, H.264 - Match Render Settings -  5 Mbps, H.264 - Match Render Settings - 15 Mbps, H.264 - Match Render Settings - 40 Mbps, High Quality, High Quality with Alpha, Lossless, Lossless with Alpha, Multi-Machine Sequence, Photoshop, TIFF Sequence with Alpha, _HIDDEN X-Factor 16, _HIDDEN X-Factor 16 Premul, _HIDDEN X-Factor 32, _HIDDEN X-Factor 32 Premul, _HIDDEN X-Factor 8, _HIDDEN X-Factor 8 Premul
+saved project; rendering...
+render done: D:\Claude\SciSense\einstein-22min\m12\M12_Animation.mov

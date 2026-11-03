@@ -1,0 +1,33 @@
+YEMEN DOCUMENTARY - FOOTAGE SUMMARY
+Reference: https://youtu.be/LXqPb2adLNY
+
+Clips: 106   Total runtime: 40.4 min   Size: 11.9 GB
+All clips verified: 1920x1080 horizontal, decode without errors, no duplicates.
+
+Genuine Yemen footage on Envato is very limited (2 Sana'a clips). All other clips are
+LOOKALIKE_<Country>_... stand-ins (Oman wadis/mountains, mud-brick towns, deserts, dragon trees, etc.).
+The real country is in each filename - check before narrating them as Yemen.
+
+Clips by country:
+  Oman: 28
+  UAE: 16
+  MiddleEast: 10
+  Tunisia: 8
+  Jordan: 7
+  Egypt: 6
+  Morocco: 6
+  SaudiArabia: 6
+  Iraq: 4
+  India: 3
+  Turkey: 3
+  Pakistan: 2
+  Yemen (genuine): 2
+  Iran: 1
+  Mali: 1
+  Portugal-Madeira: 1
+  Qatar: 1
+  Spain-CanaryIslands: 1
+
+Skipped: clips over 300 MB, vertical clips (about 45 clips; list kept in the download queue state).
+Not deleted (review yourself): D:\Claude\Footage\_duplicates_yemen (identical Iraq clip + 2 zips),
+D:\Claude\Footage\_duplicates_ukraine, and ~8 dead 'Unconfirmed *.crdownload' files in Downloads.

@@ -32,3 +32,15 @@ __pycache__/
 # --- Local-only Claude settings & Office lock files ---
 .claude/settings.local.json
 ~$*
+
+# --- More media / 3D / project binaries ---
+*.zip
+*.blend
+*.blend1
+*.fbx
+*.glb
+*.aep
+*.webp
+*.gif
+*.part
+*.crdownload

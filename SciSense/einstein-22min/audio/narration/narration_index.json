@@ -1,0 +1,135 @@
+[
+ {
+  "file": "N_0000.mp3",
+  "start": 0,
+  "dur": 17.1,
+  "words": 42,
+  "chars": 241
+ },
+ {
+  "file": "N_0048.mp3",
+  "start": 48,
+  "dur": 39.4,
+  "words": 106,
+  "chars": 570
+ },
+ {
+  "file": "N_0130.mp3",
+  "start": 90,
+  "dur": 77.8,
+  "words": 213,
+  "chars": 1175
+ },
+ {
+  "file": "N_0330.mp3",
+  "start": 210,
+  "dur": 106.2,
+  "words": 281,
+  "chars": 1674
+ },
+ {
+  "file": "N_0600.mp3",
+  "start": 360,
+  "dur": 43.0,
+  "words": 115,
+  "chars": 637
+ },
+ {
+  "file": "N_0739.mp3",
+  "start": 459,
+  "dur": 51.0,
+  "words": 152,
+  "chars": 840
+ },
+ {
+  "file": "N_0830.mp3",
+  "start": 510,
+  "dur": 42.3,
+  "words": 112,
+  "chars": 641
+ },
+ {
+  "file": "N_0946.mp3",
+  "start": 586,
+  "dur": 34.4,
+  "words": 95,
+  "chars": 522
+ },
+ {
+  "file": "N_1046.mp3",
+  "start": 646,
+  "dur": 29.2,
+  "words": 82,
+  "chars": 456
+ },
+ {
+  "file": "N_1130.mp3",
+  "start": 690,
+  "dur": 83.3,
+  "words": 211,
+  "chars": 1286
+ },
+ {
+  "file": "N_1330.mp3",
+  "start": 810,
+  "dur": 52.9,
+  "words": 120,
+  "chars": 761
+ },
+ {
+  "file": "N_1507.mp3",
+  "start": 907,
+  "dur": 33.1,
+  "words": 73,
+  "chars": 456
+ },
+ {
+  "file": "N_1600.mp3",
+  "start": 960,
+  "dur": 87.4,
+  "words": 250,
+  "chars": 1364
+ },
+ {
+  "file": "N_1800.mp3",
+  "start": 1080,
+  "dur": 16.4,
+  "words": 40,
+  "chars": 232
+ },
+ {
+  "file": "N_1906.mp3",
+  "start": 1146,
+  "dur": 16.4,
+  "words": 44,
+  "chars": 239
+ },
+ {
+  "file": "N_2000.mp3",
+  "start": 1200,
+  "dur": 17.0,
+  "words": 47,
+  "chars": 256
+ },
+ {
+  "file": "N_2030.mp3",
+  "start": 1230,
+  "dur": 6.5,
+  "words": 12,
+  "chars": 73
+ },
+ {
+  "file": "N_2112.mp3",
+  "start": 1272,
+  "dur": 3.8,
+  "words": 8,
+  "chars": 47
+ },
+ {
+  "file": "N_2144.mp3",
+  "start": 1304,
+  "dur": 13.5,
+  "words": 33,
+  "chars": 194
+ }
+]

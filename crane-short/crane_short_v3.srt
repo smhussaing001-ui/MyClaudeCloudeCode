@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:01,573
+The simplest crane in the world is
+
+2
+00:00:01,615 --> 00:00:03,483
+a rope slung over a tree branch.
+
+3
+00:00:03,884 --> 00:00:04,528
+It works,
+
+4
+00:00:04,718 --> 00:00:06,544
+right up until the branch breaks.
+
+5
+00:00:06,839 --> 00:00:08,043
+So you swap the tree for a
+
+6
+00:00:08,105 --> 00:00:08,940
+steel tower,
+
+7
+00:00:09,077 --> 00:00:11,093
+and bolt a long beam across the
+
+8
+00:00:11,135 --> 00:00:11,631
+top.
+
+9
+00:00:12,032 --> 00:00:13,446
+That beam is called the jib.
+
+10
+00:00:13,847 --> 00:00:15,631
+But slide a load out along the
+
+11
+00:00:15,695 --> 00:00:16,138
+jib,
+
+12
+00:00:16,486 --> 00:00:18,470
+and the whole thing wants to topple.
+
+13
+00:00:19,104 --> 00:00:20,455
+So you add a short arm facing
+
+14
+00:00:20,528 --> 00:00:21,088
+backwards,
+
+15
+00:00:21,204 --> 00:00:22,998
+and pile it with twenty tons of
+
+16
+00:00:23,062 --> 00:00:23,716
+concrete.
+
+17
+00:00:24,065 --> 00:00:25,215
+That's the counterweight.
+
+18
+00:00:25,679 --> 00:00:26,524
+Next problem:
+
+19
+00:00:26,776 --> 00:00:28,096
+your building is catching up with your
+
+20
+00:00:28,138 --> 00:00:28,624
+crane.
+
+21
+00:00:29,088 --> 00:00:30,418
+So the crane climbs.
+
+22
+00:00:30,883 --> 00:00:32,814
+Jacks raise everything above the tower,
+
+23
+00:00:32,973 --> 00:00:35,115
+and a fresh six metre section slides
+
+24
+00:00:35,168 --> 00:00:35,906
+into the gap.
+
+25
+00:00:36,371 --> 00:00:37,057
+Keep going,
+
+26
+00:00:37,279 --> 00:00:38,640
+and above eighty metres,
+
+27
+00:00:38,777 --> 00:00:40,593
+the skinny tower flexes in the wind
+
+28
+00:00:40,677 --> 00:00:41,733
+like a fishing rod.
+
+29
+00:00:42,282 --> 00:00:43,928
+So you bring the crane indoors,
+
+30
+00:00:43,981 --> 00:00:46,018
+into the shaft meant for the lifts.
+
+31
+00:00:46,419 --> 00:00:47,348
+Every few floors,
+
+32
+00:00:47,380 --> 00:00:49,480
+it jacks itself up and braces against
+
+33
+00:00:49,523 --> 00:00:51,095
+the concrete it just poured.
+
+34
+00:00:51,496 --> 00:00:53,205
+Then the skyscraper is finished,
+
+35
+00:00:53,280 --> 00:00:54,778
+and you spot the flaw.
+
+36
+00:00:55,032 --> 00:00:56,266
+The crane is on the roof,
+
+37
+00:00:56,404 --> 00:00:57,945
+and nothing on the ground can reach
+
+38
+00:00:57,997 --> 00:00:58,272
+it.
+
+39
+00:00:58,821 --> 00:01:00,415
+So it hoists up a smaller crane,
+
+40
+00:01:00,552 --> 00:01:01,544
+piece by piece.
+
+41
+00:01:01,945 --> 00:01:03,792
+The small one dismantles the big one,
+
+42
+00:01:04,014 --> 00:01:05,428
+and lowers it to the street.
+
+43
+00:01:06,441 --> 00:01:08,151
+Now the small crane is stranded.
+
+44
+00:01:08,615 --> 00:01:10,104
+So an even smaller one takes that
+
+45
+00:01:10,145 --> 00:01:10,685
+apart.
+
+46
+00:01:11,318 --> 00:01:12,415
+And on it goes,
+
+47
+00:01:12,669 --> 00:01:14,474
+until the last crane is so tiny,
+
+48
+00:01:14,537 --> 00:01:16,025
+it goes home in the lift.
+
+49
+00:01:16,426 --> 00:01:17,165
+Add a cab,
+
+50
+00:01:17,302 --> 00:01:17,840
+a hook,
+
+51
+00:01:17,977 --> 00:01:19,951
+and someone willing to climb up there
+
+52
+00:01:19,994 --> 00:01:20,743
+at dawn.
+
+53
+00:01:21,292 --> 00:01:22,421
+Congratulations.
+
+54
+00:01:22,885 --> 00:01:24,733
+You've invented the tower crane.
+

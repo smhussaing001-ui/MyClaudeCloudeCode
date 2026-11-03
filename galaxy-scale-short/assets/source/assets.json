@@ -1,0 +1,58 @@
+{
+ "eso1339g": {
+  "title": "Artist's impression of the Milky Way",
+  "credit": "NASA/JPL-Caltech/ESO/R. Hurt",
+  "page": "https://www.eso.org/public/images/eso1339g/",
+  "bytes": 208140,
+  "licence": "CC BY 4.0"
+ },
+ "eso1914a": {
+  "title": "The Large Magellanic Cloud revealed by VISTA",
+  "credit": "ESO/VMC Survey",
+  "page": "https://www.eso.org/public/images/eso1914a/",
+  "bytes": 641609,
+  "licence": "CC BY 4.0"
+ },
+ "eso1714a": {
+  "title": "VISTA\u2019s view of the Small Magellanic Cloud",
+  "credit": "ESO/VISTA VMC",
+  "page": "https://www.eso.org/public/images/eso1714a/",
+  "bytes": 536770,
+  "licence": "CC BY 4.0"
+ },
+ "heic2501a": {
+  "title": "Hubble\u2019s panoramic view of the Andromeda Galaxy",
+  "credit": "NASA, ESA, B. Williams (University of Washington)",
+  "page": "https://esahubble.org/images/heic2501a/",
+  "bytes": 105632,
+  "licence": "CC BY 4.0"
+ },
+ "heic1901f": {
+  "title": "Area around the Triangulum Galaxy (ground-based image)",
+  "credit": "ESO/Digitized Sky Survey 2. Acknowledgement: Davide De Martin",
+  "page": "https://esahubble.org/images/heic1901f/",
+  "bytes": 372709,
+  "licence": "CC BY 4.0"
+ },
+ "opo0404a": {
+  "title": "An abrasive collision gives one galaxy a \"black eye\"",
+  "credit": "NASA / ESA and The Hubble Heritage Team ( AURA / STScI )",
+  "page": "https://esahubble.org/images/opo0404a/",
+  "bytes": 303495,
+  "licence": "CC BY 4.0"
+ },
+ "potw1345a": {
+  "title": "Antennae Galaxies reloaded",
+  "credit": "ESA/Hubble & NASA",
+  "page": "https://esahubble.org/images/potw1345a/",
+  "bytes": 398469,
+  "licence": "CC BY 4.0"
+ },
+ "heic1305a": {
+  "title": "Hubble image of Messier 77",
+  "credit": "NASA, ESA & A. van der Hoeven",
+  "page": "https://esahubble.org/images/heic1305a/",
+  "bytes": 258744,
+  "licence": "CC BY 4.0"
+ }
+}

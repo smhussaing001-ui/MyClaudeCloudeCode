@@ -1,0 +1,4502 @@
+Composition {
+	CurrentTime = 814,
+	RenderRange = { 0, 988 },
+	GlobalRange = { 0, 989 },
+	CurrentID = 313,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	StereoMode = false,
+	Version = "DaVinci Resolve Studio 21.1.1.0010",
+	SavedOutputs = 0,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		S4_bgPNG = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "D:\\Claude\\SciSense\\einstein-22min\\m12\\layers\\einstein1904_bg.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 5000,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 5000
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.PNGFormat.PostMultiply"] = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 313.5 } },
+		},
+		S4_fgPNG = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "D:\\Claude\\SciSense\\einstein-22min\\m12\\layers\\einstein1904_fg.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 5000,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 5000
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.PNGFormat.PostMultiply"] = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 280.5 } },
+		},
+		S6_bgPNG = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "D:\\Claude\\SciSense\\einstein-22min\\m12\\layers\\einstein_desk_bg.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 5000,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 5000
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.PNGFormat.PostMultiply"] = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3905, 643.5 } },
+		},
+		S6_fgPNG = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "D:\\Claude\\SciSense\\einstein-22min\\m12\\layers\\einstein_desk_fg.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 5000,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 5000
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.PNGFormat.PostMultiply"] = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3905, 610.5 } },
+		},
+		MAP_out = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 5222.33, 1072.5 } },
+		},
+		MAP_canvas = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.018, },
+				TopLeftGreen = Input { Value = 0.022, },
+				TopLeftBlue = Input { Value = 0.035, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -491.667, 1045.29 } },
+		},
+		MAP_canvasNoise = FastNoise {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Detail = Input { Value = 4, },
+				Contrast = Input { Value = 0.8, },
+				Brightness = Input { Value = -0.35, },
+				XScale = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 148.333, 845.56 } },
+		},
+		MAP_canvasTex = Merge {
+			Inputs = {
+				Blend = Input { Value = 0.25, },
+				Background = Input {
+					SourceOp = "MAP_canvas",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_canvasNoise",
+					Source = "Output",
+				},
+				ApplyMode = Input { Value = FuID { "Screen" }, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 165, 1006.5 } },
+		},
+		MAP_line_n1_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.0008, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath10",
+					Source = "Value",
+				},
+				Width = Input {
+					SourceOp = "MAP_line_n1_mWidth",
+					Source = "Value",
+				},
+				Height = Input { Value = 0.0016, },
+				Angle = Input { Value = 154.885165113855, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 1105.5 } },
+		},
+		XYPath10 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath10X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath10Y",
+					Source = "Value",
+				}
+			},
+		},
+		MAP_line_n1_mWidth = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 6.66666666666667, 0.110441231544202 }, Flags = { Linear = true } },
+				[20] = { 0.331323694632605, LH = { 13.3333333333333, 0.220882463088404 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath10X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 6.66666666666667, 0.45 }, Flags = { Linear = true } },
+				[20] = { 0.35, LH = { 13.3333333333333, 0.4 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath10Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 6.66666666666667, 0.541666666666667 }, Flags = { Linear = true } },
+				[20] = { 0.625, LH = { 13.3333333333333, 0.583333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_line_n1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "MAP_line_n1_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 1072.5 } },
+		},
+		MAP_m_line_n1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_canvasTex",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_line_n1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 1006.5 } },
+		},
+		MAP_line_n2_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.0008, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath11",
+					Source = "Value",
+				},
+				Width = Input {
+					SourceOp = "MAP_line_n2_mWidth",
+					Source = "Value",
+				},
+				Height = Input { Value = 0.0016, },
+				Angle = Input { Value = 25.1148348861446, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 1105.5 } },
+		},
+		XYPath11 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath11X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath11Y",
+					Source = "Value",
+				}
+			},
+		},
+		MAP_line_n2_mWidth = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 36, 0 }, Flags = { Linear = true } },
+				[108] = { 0, LH = { 72, 0 }, RH = { 114.666666666667, 0.110441231544202 }, Flags = { Linear = true } },
+				[128] = { 0.331323694632606, LH = { 121.333333333333, 0.220882463088404 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath11X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 36, 0.5 }, Flags = { Linear = true } },
+				[108] = { 0.5, LH = { 72, 0.5 }, RH = { 114.666666666667, 0.55 }, Flags = { Linear = true } },
+				[128] = { 0.65, LH = { 121.333333333333, 0.6 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath11Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 36, 0.5 }, Flags = { Linear = true } },
+				[108] = { 0.5, LH = { 72, 0.5 }, RH = { 114.666666666667, 0.541666666666667 }, Flags = { Linear = true } },
+				[128] = { 0.625, LH = { 121.333333333333, 0.583333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_line_n2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "MAP_line_n2_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 1072.5 } },
+		},
+		MAP_m_line_n2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_line_n1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_line_n2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 1006.5 } },
+		},
+		MAP_line_n3_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.0008, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath12",
+					Source = "Value",
+				},
+				Width = Input {
+					SourceOp = "MAP_line_n3_mWidth",
+					Source = "Value",
+				},
+				Height = Input { Value = 0.0016, },
+				Angle = Input { Value = -25.1148348861446, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 1105.5 } },
+		},
+		XYPath12 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath12X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath12Y",
+					Source = "Value",
+				}
+			},
+		},
+		MAP_line_n3_mWidth = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 58, 0 }, Flags = { Linear = true } },
+				[174] = { 0, LH = { 116, 0 }, RH = { 180.666666666667, 0.110441231544202 }, Flags = { Linear = true } },
+				[194] = { 0.331323694632606, LH = { 187.333333333333, 0.220882463088404 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath12X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 58, 0.5 }, Flags = { Linear = true } },
+				[174] = { 0.5, LH = { 116, 0.5 }, RH = { 180.666666666667, 0.55 }, Flags = { Linear = true } },
+				[194] = { 0.65, LH = { 187.333333333333, 0.6 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath12Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 58, 0.5 }, Flags = { Linear = true } },
+				[174] = { 0.5, LH = { 116, 0.5 }, RH = { 180.666666666667, 0.458333333333333 }, Flags = { Linear = true } },
+				[194] = { 0.375, LH = { 187.333333333333, 0.416666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_line_n3 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "MAP_line_n3_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 1072.5 } },
+		},
+		MAP_m_line_n3 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_line_n2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_line_n3",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 1006.5 } },
+		},
+		MAP_line_n4_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.0008, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath13",
+					Source = "Value",
+				},
+				Width = Input {
+					SourceOp = "MAP_line_n4_mWidth",
+					Source = "Value",
+				},
+				Height = Input { Value = 0.0016, },
+				Angle = Input { Value = -154.885165113855, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 1105.5 } },
+		},
+		XYPath13 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath13X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath13Y",
+					Source = "Value",
+				}
+			},
+		},
+		MAP_line_n4_mWidth = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 93, 0 }, Flags = { Linear = true } },
+				[279] = { 0, LH = { 186, 0 }, RH = { 285.666666666667, 0.110441231544202 }, Flags = { Linear = true } },
+				[299] = { 0.331323694632605, LH = { 292.333333333333, 0.220882463088404 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath13X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 93, 0.5 }, Flags = { Linear = true } },
+				[279] = { 0.5, LH = { 186, 0.5 }, RH = { 285.666666666667, 0.45 }, Flags = { Linear = true } },
+				[299] = { 0.35, LH = { 292.333333333333, 0.4 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath13Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 93, 0.5 }, Flags = { Linear = true } },
+				[279] = { 0.5, LH = { 186, 0.5 }, RH = { 285.666666666667, 0.458333333333333 }, Flags = { Linear = true } },
+				[299] = { 0.375, LH = { 292.333333333333, 0.416666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_line_n4 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "MAP_line_n4_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 1072.5 } },
+		},
+		MAP_m_line_n4 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_line_n3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_line_n4",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 1006.5 } },
+		},
+		MAP_frame_n1_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.002, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.2, 0.75 }, },
+				Width = Input { Value = 0.287, },
+				Height = Input { Value = 0.29, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 1105.5 } },
+		},
+		MAP_frame_n1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.86, },
+				TopLeftBlue = Input { Value = 0.6, },
+				EffectMask = Input {
+					SourceOp = "MAP_frame_n1_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 1072.5 } },
+		},
+		MAP_m_frame_n1 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_frame_n1Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_line_n4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_frame_n1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, 1006.5 } },
+		},
+		MAP_m_frame_n1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 4, 0 }, Flags = { Linear = true } },
+				[12] = { 0, LH = { 8, 0 }, RH = { 14.6666666666667, 0.3 }, Flags = { Linear = true } },
+				[20] = { 0.9, LH = { 17.3333333333333, 0.6 }, Flags = { Linear = true } }
+			}
+		},
+		S1_bg = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.02, },
+				TopLeftGreen = Input { Value = 0.025, },
+				TopLeftBlue = Input { Value = 0.035, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_plate_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.5, 0.2 }, },
+				Width = Input { Value = 0.78, },
+				Height = Input { Value = 0.045, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_plate = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.42, },
+				TopLeftGreen = Input { Value = 0.43, },
+				TopLeftBlue = Input { Value = 0.47, },
+				EffectMask = Input {
+					SourceOp = "S1_plate_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_plate = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_bg",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_plate",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_plateEdge_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.5, 0.224 }, },
+				Width = Input { Value = 0.78, },
+				Height = Input { Value = 0.003, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_plateEdge = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.85, },
+				TopLeftGreen = Input { Value = 0.86, },
+				TopLeftBlue = Input { Value = 0.9, },
+				EffectMask = Input {
+					SourceOp = "S1_plateEdge_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_edge = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_plate",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_plateEdge",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e0_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.26, 0.235 }, },
+				Width = Input { Value = 0.011, },
+				Height = Input { Value = 0.011, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e0 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.35, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_e0_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_e0 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_edge",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_e0",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e1_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath1",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.011, },
+				Height = Input { Value = 0.011, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		XYPath1 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath1X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath1Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath1X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.38, RH = { 20, 0.38 }, Flags = { Linear = true } },
+				[60] = { 0.38, LH = { 40, 0.38 }, RH = { 66, 0.446666666666667 }, Flags = { Linear = true } },
+				[78] = { 0.58, LH = { 72, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath1Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.235, RH = { 20, 0.235 }, Flags = { Linear = true } },
+				[60] = { 0.235, LH = { 40, 0.235 }, RH = { 66, 0.473333333333333 }, Flags = { Linear = true } },
+				[78] = { 0.95, LH = { 72, 0.711666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S1_e1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.35, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_e1_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_e1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_e0",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_e1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e2_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath2",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.011, },
+				Height = Input { Value = 0.011, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		XYPath2 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath2X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath2Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath2X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 24, 0.5 }, Flags = { Linear = true } },
+				[72] = { 0.5, LH = { 48, 0.5 }, RH = { 78, 0.566666666666667 }, Flags = { Linear = true } },
+				[90] = { 0.7, LH = { 84, 0.633333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath2Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.235, RH = { 24, 0.235 }, Flags = { Linear = true } },
+				[72] = { 0.235, LH = { 48, 0.235 }, RH = { 78, 0.473333333333333 }, Flags = { Linear = true } },
+				[90] = { 0.95, LH = { 84, 0.711666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S1_e2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.35, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_e2_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_e2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_e1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_e2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e3_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath3",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.011, },
+				Height = Input { Value = 0.011, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		XYPath3 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath3X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath3Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath3X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.62, RH = { 28, 0.62 }, Flags = { Linear = true } },
+				[84] = { 0.62, LH = { 56, 0.62 }, RH = { 90, 0.686666666666667 }, Flags = { Linear = true } },
+				[102] = { 0.82, LH = { 96, 0.753333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath3Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.235, RH = { 28, 0.235 }, Flags = { Linear = true } },
+				[84] = { 0.235, LH = { 56, 0.235 }, RH = { 90, 0.473333333333333 }, Flags = { Linear = true } },
+				[102] = { 0.95, LH = { 96, 0.711666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S1_e3 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.35, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_e3_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_e3 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_e2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_e3",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e4_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.74, 0.235 }, },
+				Width = Input { Value = 0.011, },
+				Height = Input { Value = 0.011, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_e4 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.35, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_e4_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_e4 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_e3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_e4",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_red0_m = EllipseMask {
+			Inputs = {
+				Level = Input {
+					SourceOp = "S1_red0_mLevel",
+					Source = "Value",
+				},
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath4",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.016, },
+				Height = Input { Value = 0.016, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_red0_mLevel = BezierSpline {
+			SplineColor = { Red = 130, Green = 246, Blue = 132 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 6, 1 }, Flags = { Linear = true } },
+				[18] = { 1, LH = { 12, 1 }, RH = { 20, 0.666666666666667 }, Flags = { Linear = true } },
+				[24] = { 0, LH = { 22, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath4 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath4X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath4Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath4X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.12, RH = { 1.33333333333333, 0.12 }, Flags = { Linear = true } },
+				[4] = { 0.12, LH = { 2.66666666666667, 0.12 }, RH = { 8.66666666666667, 0.18 }, Flags = { Linear = true } },
+				[18] = { 0.3, LH = { 13.3333333333333, 0.24 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath4Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1.05, RH = { 1.33333333333333, 1.05 }, Flags = { Linear = true } },
+				[4] = { 1.05, LH = { 2.66666666666667, 1.05 }, RH = { 8.66666666666667, 0.781666666666667 }, Flags = { Linear = true } },
+				[18] = { 0.245, LH = { 13.3333333333333, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_red0 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.25, },
+				TopLeftBlue = Input { Value = 0.15, },
+				EffectMask = Input {
+					SourceOp = "S1_red0_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_red0 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_e4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_red0",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_red1_m = EllipseMask {
+			Inputs = {
+				Level = Input {
+					SourceOp = "S1_red1_mLevel",
+					Source = "Value",
+				},
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath5",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.016, },
+				Height = Input { Value = 0.016, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_red1_mLevel = BezierSpline {
+			SplineColor = { Red = 130, Green = 246, Blue = 132 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 8.66666666666667, 1 }, Flags = { Linear = true } },
+				[26] = { 1, LH = { 17.3333333333333, 1 }, RH = { 28, 0.666666666666667 }, Flags = { Linear = true } },
+				[32] = { 0, LH = { 30, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath5 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath5X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath5Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath5X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.24, RH = { 4, 0.24 }, Flags = { Linear = true } },
+				[12] = { 0.24, LH = { 8, 0.24 }, RH = { 16.6666666666667, 0.3 }, Flags = { Linear = true } },
+				[26] = { 0.42, LH = { 21.3333333333333, 0.36 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath5Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1.05, RH = { 4, 1.05 }, Flags = { Linear = true } },
+				[12] = { 1.05, LH = { 8, 1.05 }, RH = { 16.6666666666667, 0.781666666666667 }, Flags = { Linear = true } },
+				[26] = { 0.245, LH = { 21.3333333333333, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_red1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.25, },
+				TopLeftBlue = Input { Value = 0.15, },
+				EffectMask = Input {
+					SourceOp = "S1_red1_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_red1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_red0",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_red1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_red2_m = EllipseMask {
+			Inputs = {
+				Level = Input {
+					SourceOp = "S1_red2_mLevel",
+					Source = "Value",
+				},
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath6",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.016, },
+				Height = Input { Value = 0.016, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_red2_mLevel = BezierSpline {
+			SplineColor = { Red = 130, Green = 246, Blue = 132 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 11.3333333333333, 1 }, Flags = { Linear = true } },
+				[34] = { 1, LH = { 22.6666666666667, 1 }, RH = { 36, 0.666666666666667 }, Flags = { Linear = true } },
+				[40] = { 0, LH = { 38, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath6 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath6X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath6Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath6X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.36, RH = { 6.66666666666667, 0.36 }, Flags = { Linear = true } },
+				[20] = { 0.36, LH = { 13.3333333333333, 0.36 }, RH = { 24.6666666666667, 0.42 }, Flags = { Linear = true } },
+				[34] = { 0.54, LH = { 29.3333333333333, 0.48 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath6Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1.05, RH = { 6.66666666666667, 1.05 }, Flags = { Linear = true } },
+				[20] = { 1.05, LH = { 13.3333333333333, 1.05 }, RH = { 24.6666666666667, 0.781666666666667 }, Flags = { Linear = true } },
+				[34] = { 0.245, LH = { 29.3333333333333, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_red2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.25, },
+				TopLeftBlue = Input { Value = 0.15, },
+				EffectMask = Input {
+					SourceOp = "S1_red2_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_red2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_red1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_red2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_blue0_m = EllipseMask {
+			Inputs = {
+				Level = Input {
+					SourceOp = "S1_blue0_mLevel",
+					Source = "Value",
+				},
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath7",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.016, },
+				Height = Input { Value = 0.016, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_blue0_mLevel = BezierSpline {
+			SplineColor = { Red = 130, Green = 246, Blue = 132 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 20, 1 }, Flags = { Linear = true } },
+				[60] = { 1, LH = { 40, 1 }, RH = { 61, 0.666666666666667 }, Flags = { Linear = true } },
+				[63] = { 0, LH = { 62, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath7 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath7X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath7Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath7X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.2, RH = { 15.3333333333333, 0.2 }, Flags = { Linear = true } },
+				[46] = { 0.2, LH = { 30.6666666666667, 0.2 }, RH = { 50.6666666666667, 0.26 }, Flags = { Linear = true } },
+				[60] = { 0.38, LH = { 55.3333333333333, 0.32 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath7Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1.05, RH = { 15.3333333333333, 1.05 }, Flags = { Linear = true } },
+				[46] = { 1.05, LH = { 30.6666666666667, 1.05 }, RH = { 50.6666666666667, 0.781666666666667 }, Flags = { Linear = true } },
+				[60] = { 0.245, LH = { 55.3333333333333, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_blue0 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.5, },
+				TopLeftGreen = Input { Value = 0.62, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_blue0_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_blue0 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_red2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_blue0",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_blue1_m = EllipseMask {
+			Inputs = {
+				Level = Input {
+					SourceOp = "S1_blue1_mLevel",
+					Source = "Value",
+				},
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath8",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.016, },
+				Height = Input { Value = 0.016, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_blue1_mLevel = BezierSpline {
+			SplineColor = { Red = 130, Green = 246, Blue = 132 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 24, 1 }, Flags = { Linear = true } },
+				[72] = { 1, LH = { 48, 1 }, RH = { 73, 0.666666666666667 }, Flags = { Linear = true } },
+				[75] = { 0, LH = { 74, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath8 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath8X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath8Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath8X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.32, RH = { 19.3333333333333, 0.32 }, Flags = { Linear = true } },
+				[58] = { 0.32, LH = { 38.6666666666667, 0.32 }, RH = { 62.6666666666667, 0.38 }, Flags = { Linear = true } },
+				[72] = { 0.5, LH = { 67.3333333333333, 0.44 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath8Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1.05, RH = { 19.3333333333333, 1.05 }, Flags = { Linear = true } },
+				[58] = { 1.05, LH = { 38.6666666666667, 1.05 }, RH = { 62.6666666666667, 0.781666666666667 }, Flags = { Linear = true } },
+				[72] = { 0.245, LH = { 67.3333333333333, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_blue1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.5, },
+				TopLeftGreen = Input { Value = 0.62, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_blue1_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_blue1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_blue0",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_blue1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_blue2_m = EllipseMask {
+			Inputs = {
+				Level = Input {
+					SourceOp = "S1_blue2_mLevel",
+					Source = "Value",
+				},
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					SourceOp = "XYPath9",
+					Source = "Value",
+				},
+				Width = Input { Value = 0.016, },
+				Height = Input { Value = 0.016, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_blue2_mLevel = BezierSpline {
+			SplineColor = { Red = 130, Green = 246, Blue = 132 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 28, 1 }, Flags = { Linear = true } },
+				[84] = { 1, LH = { 56, 1 }, RH = { 85, 0.666666666666667 }, Flags = { Linear = true } },
+				[87] = { 0, LH = { 86, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath9 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath9X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath9Y",
+					Source = "Value",
+				}
+			},
+		},
+		XYPath9X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.44, RH = { 23.3333333333333, 0.44 }, Flags = { Linear = true } },
+				[70] = { 0.44, LH = { 46.6666666666667, 0.44 }, RH = { 74.6666666666667, 0.5 }, Flags = { Linear = true } },
+				[84] = { 0.62, LH = { 79.3333333333333, 0.56 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath9Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1.05, RH = { 23.3333333333333, 1.05 }, Flags = { Linear = true } },
+				[70] = { 1.05, LH = { 46.6666666666667, 1.05 }, RH = { 74.6666666666667, 0.781666666666667 }, Flags = { Linear = true } },
+				[84] = { 0.245, LH = { 79.3333333333333, 0.513333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_blue2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.5, },
+				TopLeftGreen = Input { Value = 0.62, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S1_blue2_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_blue2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_blue1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_blue2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_lblRed = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.86 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.45, },
+				Blue1 = Input { Value = 0.35, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "RED LIGHT  ·  no electrons", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.035, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -189.334, 213.334 } },
+			Version = 1
+		},
+		S1_m_lr = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S1_m_lrBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S1_m_blue2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_lblRed",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_lrBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 1, 0.333333333333333 }, Flags = { Linear = true } },
+				[3] = { 1, LH = { 2, 0.666666666666667 }, RH = { 15.3333333333333, 1 }, Flags = { Linear = true } },
+				[40] = { 1, LH = { 27.6666666666667, 1 }, RH = { 41.3333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+				[44] = { 0, LH = { 42.6666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S1_lblBlue = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.86 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.6, },
+				Green1 = Input { Value = 0.75, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "BLUE LIGHT  ·  electrons fly out", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.035, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -224, 53.3334 } },
+			Version = 1
+		},
+		S1_m_lb = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S1_m_lbBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S1_m_lr",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_lblBlue",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_m_lbBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 14.6666666666667, 0 }, Flags = { Linear = true } },
+				[44] = { 0, LH = { 29.3333333333333, 0 }, RH = { 45.6666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+				[49] = { 1, LH = { 47.3333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S1_lblMetal = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.14 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.7, },
+				Green1 = Input { Value = 0.7, },
+				Blue1 = Input { Value = 0.75, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "METAL", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.022, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, -143.03 } },
+			Version = 1
+		},
+		S1_m_lm = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S1_m_lb",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_lblMetal",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S1_glow = SoftGlow {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				Threshold = Input { Value = 0.35, },
+				Gain = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "S1_m_lm",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		MAP_m_card_n1 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_card_n1Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_frame_n1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S1_glow",
+					Source = "Output",
+				},
+				Center = Input { Value = { 0.2, 0.75 }, },
+				Size = Input { Value = 0.84, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 1006.5 } },
+		},
+		MAP_m_card_n1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 4, 0 }, Flags = { Linear = true } },
+				[12] = { 0, LH = { 8, 0 }, RH = { 14.6666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+				[20] = { 1, LH = { 17.3333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_title_n1 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.2, 0.56 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.88, },
+				Blue1 = Input { Value = 0.62, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "LIGHT COMES IN PACKETS", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.016, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_title_n1 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_title_n1Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_card_n1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_title_n1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1595, 1006.5 } },
+		},
+		MAP_m_title_n1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 4.66666666666667, 0 }, Flags = { Linear = true } },
+				[14] = { 0, LH = { 9.33333333333333, 0 }, RH = { 17.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[24] = { 1, LH = { 20.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_sub_n1 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.2, 0.525 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.85, },
+				Green1 = Input { Value = 0.85, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "the photoelectric effect", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Italic", },
+				Size = Input { Value = 0.011, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1705, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_sub_n1 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_sub_n1Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_title_n1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_sub_n1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1815, 1006.5 } },
+		},
+		MAP_m_sub_n1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 6, 0 }, Flags = { Linear = true } },
+				[18] = { 0, LH = { 12, 0 }, RH = { 21.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[28] = { 1, LH = { 24.6666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_frame_n2_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.002, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.8, 0.75 }, },
+				Width = Input { Value = 0.287, },
+				Height = Input { Value = 0.29, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1925, 1105.5 } },
+		},
+		MAP_frame_n2 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.86, },
+				TopLeftBlue = Input { Value = 0.6, },
+				EffectMask = Input {
+					SourceOp = "MAP_frame_n2_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1925, 1072.5 } },
+		},
+		MAP_m_frame_n2 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_frame_n2Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_sub_n1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_frame_n2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2035, 1006.5 } },
+		},
+		MAP_m_frame_n2Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 40, 0 }, Flags = { Linear = true } },
+				[120] = { 0, LH = { 80, 0 }, RH = { 122.666666666667, 0.3 }, Flags = { Linear = true } },
+				[128] = { 0.9, LH = { 125.333333333333, 0.6 }, Flags = { Linear = true } }
+			}
+		},
+		S2_bg = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.015, },
+				TopLeftGreen = Input { Value = 0.02, },
+				TopLeftBlue = Input { Value = 0.03, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 352, -82.4243 } },
+		},
+		S2_moleculesNoise = FastNoise {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Contrast = Input { Value = 2.2, },
+				XScale = Input { Value = 90, },
+				SeetheRate = Input { Value = 3, },
+				Discontinuous = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 1501.5 } },
+		},
+		S2_moleculeMask = BitmapMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Image = Input {
+					SourceOp = "S2_moleculesNoise",
+					Source = "Output",
+				},
+				Low = Input { Value = 0.93, },
+				High = Input { Value = 0.95, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 1831.5 } },
+		},
+		S2_moleculeDots = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.75, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 1, },
+				EffectMask = Input {
+					SourceOp = "S2_moleculeMask",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 1798.5 } },
+		},
+		S2_m_molecules = Merge {
+			Inputs = {
+				Blend = Input { Value = 0.85, },
+				Background = Input {
+					SourceOp = "S2_bg",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S2_moleculeDots",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 1567.5 } },
+		},
+		S2_grain_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.004, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					Value = { 0.525722711052396, 0.493849794674692 },
+					Expression = "Point(0.5+0.03*sin(time*0.37)+0.015*sin(time*1.13)+0.008*sin(time*2.9), 0.5+0.03*cos(time*0.29)+0.015*sin(time*0.97)+0.008*cos(time*3.3))",
+				},
+				Width = Input { Value = 0.085, },
+				Height = Input { Value = 0.085, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S2_grain = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.95, },
+				TopLeftGreen = Input { Value = 0.82, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "S2_grain_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { -274.667, -82.4243 } },
+		},
+		S2_m_grain = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S2_m_molecules",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S2_grain",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S2_lbl = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.86 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.95, },
+				Green1 = Input { Value = 0.93, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "Invisible molecules shove a visible grain", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.034, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 213.334, -96.9698 } },
+			Version = 1
+		},
+		S2_m_lbl = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S2_m_lblBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S2_m_grain",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S2_lbl",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		S2_m_lblBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 36.6666666666667, 0 }, Flags = { Linear = true } },
+				[110] = { 0, LH = { 73.3333333333333, 0 }, RH = { 112, 0.333333333333333 }, Flags = { Linear = true } },
+				[116] = { 1, LH = { 114, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S2_glow = SoftGlow {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				Threshold = Input { Value = 0.4, },
+				Gain = Input { Value = 0.9, },
+				Input = Input {
+					SourceOp = "S2_m_lbl",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 148.5 } },
+		},
+		MAP_m_card_n2 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_card_n2Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_frame_n2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S2_glow",
+					Source = "Output",
+				},
+				Center = Input { Value = { 0.8, 0.75 }, },
+				Size = Input { Value = 0.84, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2145, 1006.5 } },
+		},
+		MAP_m_card_n2Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 40, 0 }, Flags = { Linear = true } },
+				[120] = { 0, LH = { 80, 0 }, RH = { 122.666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+				[128] = { 1, LH = { 125.333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_title_n2 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.8, 0.56 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.88, },
+				Blue1 = Input { Value = 0.62, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "ATOMS ARE REAL", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.016, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2255, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_title_n2 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_title_n2Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_card_n2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_title_n2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2365, 1006.5 } },
+		},
+		MAP_m_title_n2Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 40.6666666666667, 0 }, Flags = { Linear = true } },
+				[122] = { 0, LH = { 81.3333333333333, 0 }, RH = { 125.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[132] = { 1, LH = { 128.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_sub_n2 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.8, 0.525 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.85, },
+				Green1 = Input { Value = 0.85, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "Brownian motion", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Italic", },
+				Size = Input { Value = 0.011, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2475, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_sub_n2 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_sub_n2Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_title_n2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_sub_n2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2585, 1006.5 } },
+		},
+		MAP_m_sub_n2Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 42, 0 }, Flags = { Linear = true } },
+				[126] = { 0, LH = { 84, 0 }, RH = { 129.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[136] = { 1, LH = { 132.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_frame_n3_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.002, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.8, 0.25 }, },
+				Width = Input { Value = 0.287, },
+				Height = Input { Value = 0.29, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2695, 1105.5 } },
+		},
+		MAP_frame_n3 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.86, },
+				TopLeftBlue = Input { Value = 0.6, },
+				EffectMask = Input {
+					SourceOp = "MAP_frame_n3_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 2695, 1072.5 } },
+		},
+		MAP_m_frame_n3 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_frame_n3Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_sub_n2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_frame_n3",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2805, 1006.5 } },
+		},
+		MAP_m_frame_n3Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 62, 0 }, Flags = { Linear = true } },
+				[186] = { 0, LH = { 124, 0 }, RH = { 188.666666666667, 0.3 }, Flags = { Linear = true } },
+				[194] = { 0.9, LH = { 191.333333333333, 0.6 }, Flags = { Linear = true } }
+			}
+		},
+		S3_bg = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.02, },
+				TopLeftGreen = Input { Value = 0.02, },
+				TopLeftBlue = Input { Value = 0.028, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 148.5 } },
+		},
+		S3_eq = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.6 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.93, },
+				Blue1 = Input { Value = 0.8, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "E = mc²", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Italic", },
+				Size = Input { Value = 0.15, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, 214.5 } },
+			Version = 1
+		},
+		S3_m_eq = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S3_m_eqBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S3_bg",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S3_eq",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 148.5 } },
+		},
+		S3_m_eqBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 58, 0 }, Flags = { Linear = true } },
+				[174] = { 0, LH = { 116, 0 }, RH = { 177.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[184] = { 1, LH = { 180.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S3_l1 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.38 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.95, },
+				Green1 = Input { Value = 0.93, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "1 gram of mass  =  90 trillion joules", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.045, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 214.5 } },
+			Version = 1
+		},
+		S3_m_l1 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S3_m_l1Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S3_m_eq",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S3_l1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 148.5 } },
+		},
+		S3_m_l1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 69.3333333333333, 0 }, Flags = { Linear = true } },
+				[208] = { 0, LH = { 138.666666666667, 0 }, RH = { 211.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[218] = { 1, LH = { 214.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S3_l2 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.3 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.75, },
+				Blue1 = Input { Value = 0.45, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "≈ the energy of 21,000 tonnes of TNT", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.034, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 214.5 } },
+			Version = 1
+		},
+		S3_m_l2 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S3_m_l2Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S3_m_l1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S3_l2",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+		},
+		S3_m_l2Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 78, 0 }, Flags = { Linear = true } },
+				[234] = { 0, LH = { 156, 0 }, RH = { 237.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[244] = { 1, LH = { 240.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S3_glow = SoftGlow {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				Threshold = Input { Value = 0.3, },
+				Gain = Input { Value = 1.2, },
+				XGlowSize = Input { Value = 16, },
+				Input = Input {
+					SourceOp = "S3_m_l2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 148.5 } },
+		},
+		MAP_m_card_n3 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_card_n3Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_frame_n3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S3_glow",
+					Source = "Output",
+				},
+				Center = Input { Value = { 0.8, 0.25 }, },
+				Size = Input { Value = 0.84, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2915, 1006.5 } },
+		},
+		MAP_m_card_n3Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 62, 0 }, Flags = { Linear = true } },
+				[186] = { 0, LH = { 124, 0 }, RH = { 188.666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+				[194] = { 1, LH = { 191.333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_title_n3 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.8, 0.06 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.88, },
+				Blue1 = Input { Value = 0.62, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "MASS IS ENERGY", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.016, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3025, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_title_n3 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_title_n3Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_card_n3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_title_n3",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3135, 1006.5 } },
+		},
+		MAP_m_title_n3Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 62.6666666666667, 0 }, Flags = { Linear = true } },
+				[188] = { 0, LH = { 125.333333333333, 0 }, RH = { 191.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[198] = { 1, LH = { 194.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_sub_n3 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.8, 0.025 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.85, },
+				Green1 = Input { Value = 0.85, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "E = mcÂ²", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Italic", },
+				Size = Input { Value = 0.011, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3245, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_sub_n3 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_sub_n3Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_title_n3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_sub_n3",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3355, 1006.5 } },
+		},
+		MAP_m_sub_n3Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 64, 0 }, Flags = { Linear = true } },
+				[192] = { 0, LH = { 128, 0 }, RH = { 195.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[202] = { 1, LH = { 198.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_frame_n4_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.002, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.2, 0.25 }, },
+				Width = Input { Value = 0.287, },
+				Height = Input { Value = 0.29, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3465, 1105.5 } },
+		},
+		MAP_frame_n4 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.86, },
+				TopLeftBlue = Input { Value = 0.6, },
+				EffectMask = Input {
+					SourceOp = "MAP_frame_n4_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 3465, 1072.5 } },
+		},
+		MAP_m_frame_n4 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_frame_n4Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_sub_n3",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_frame_n4",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3575, 1006.5 } },
+		},
+		MAP_m_frame_n4Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 97, 0 }, Flags = { Linear = true } },
+				[291] = { 0, LH = { 194, 0 }, RH = { 293.666666666667, 0.3 }, Flags = { Linear = true } },
+				[299] = { 0.9, LH = { 296.333333333333, 0.6 }, Flags = { Linear = true } }
+			}
+		},
+		S4_backdrop = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.07, },
+				TopLeftGreen = Input { Value = 0.065, },
+				TopLeftBlue = Input { Value = 0.06, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 346.5 } },
+		},
+		S4_bgPlane = ImagePlane3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input { Value = 0.15, },
+				["Transform3DOp.Translate.Z"] = Input { Value = -3.2, },
+				["Transform3DOp.Scale.X"] = Input { Value = 3.4, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 3, },
+				MaterialInput = Input {
+					SourceOp = "S4_bgPNG",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 313.5 } },
+		},
+		S4_fgPlane = ImagePlane3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input { Value = -0.28, },
+				["Transform3DOp.Translate.Y"] = Input { Value = -0.05, },
+				["Transform3DOp.Translate.Z"] = Input { Value = -2, },
+				["Transform3DOp.Scale.X"] = Input { Value = 1.25, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 4, },
+				MaterialInput = Input {
+					SourceOp = "S4_fgPNG",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 4, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 280.5 } },
+		},
+		S4_paper = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1600, },
+				Height = Input { Value = 2100, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.91, },
+				TopLeftGreen = Input { Value = 0.87, },
+				TopLeftBlue = Input { Value = 0.77, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 379.5 } },
+		},
+		S4_paperNoise = FastNoise {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1600, },
+				Height = Input { Value = 2100, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Detail = Input { Value = 7, },
+				Contrast = Input { Value = 0.6, },
+				Brightness = Input { Value = 0.25, },
+				XScale = Input { Value = 6, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 412.5 } },
+		},
+		S4_paperAge = Merge {
+			Inputs = {
+				Blend = Input { Value = 0.35, },
+				Background = Input {
+					SourceOp = "S4_paper",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S4_paperNoise",
+					Source = "Output",
+				},
+				ApplyMode = Input { Value = FuID { "Multiply" }, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 379.5 } },
+		},
+		S4_title = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1600, },
+				Height = Input { Value = 2100, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.62 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.12, },
+				Green1 = Input { Value = 0.09, },
+				Blue1 = Input { Value = 0.06, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "ANNALEN DER PHYSIK\nVierte Folge · 1905\n\n\nZur Elektrodynamik\nbewegter Körper\n\nvon A. Einstein", },
+				Font = Input { Value = "Times New Roman", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.07, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 412.5 } },
+			Version = 1
+		},
+		S4_pageText = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S4_paperAge",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S4_title",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 379.5 } },
+		},
+		S4_pagePlane = ImagePlane3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input {
+					SourceOp = "S4_pagePlaneXOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Y"] = Input {
+					SourceOp = "S4_pagePlaneYOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Z"] = Input { Value = -1.75, },
+				["Transform3DOp.Rotate.X"] = Input {
+					SourceOp = "S4_pagePlaneXRotation",
+					Source = "Value",
+				},
+				["Transform3DOp.Rotate.Z"] = Input {
+					SourceOp = "S4_pagePlaneZRotation",
+					Source = "Value",
+				},
+				["Transform3DOp.Scale.X"] = Input { Value = 0.62, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 5, },
+				MaterialInput = Input {
+					SourceOp = "S4_pageText",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 5, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, 379.5 } },
+		},
+		S4_pagePlaneXOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 182 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.85, RH = { 137, 0.85 }, Flags = { Linear = true } },
+				[411] = { 0.85, LH = { 274, 0.85 }, RH = { 423, 0.706666666666667 }, Flags = { Linear = true } },
+				[447] = { 0.42, LH = { 435, 0.563333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S4_pagePlaneYOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 100 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { -1.4, RH = { 137, -1.4 }, Flags = { Linear = true } },
+				[411] = { -1.4, LH = { 274, -1.4 }, RH = { 423, -0.95 }, Flags = { Linear = true } },
+				[447] = { -0.05, LH = { 435, -0.5 }, Flags = { Linear = true } }
+			}
+		},
+		S4_pagePlaneXRotation = BezierSpline {
+			SplineColor = { Red = 255, Green = 77, Blue = 128 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { -55, RH = { 137, -55 }, Flags = { Linear = true } },
+				[411] = { -55, LH = { 274, -55 }, RH = { 423, -39.3333333333333 }, Flags = { Linear = true } },
+				[447] = { -8, LH = { 435, -23.6666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S4_pagePlaneZRotation = BezierSpline {
+			SplineColor = { Red = 128, Green = 128, Blue = 255 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { -20, RH = { 137, -20 }, Flags = { Linear = true } },
+				[411] = { -20, LH = { 274, -20 }, RH = { 423, -15 }, Flags = { Linear = true } },
+				[447] = { -5, LH = { 435, -10 }, Flags = { Linear = true } }
+			}
+		},
+		S4_cam = Camera3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input {
+					SourceOp = "S4_camXOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Z"] = Input {
+					SourceOp = "S4_camZOffset",
+					Source = "Value",
+				},
+				AoV = Input { Value = 19.2642683071402, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 6, },
+				["MtlStdInputs.MaterialID"] = Input { Value = 6, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 313.5 } },
+		},
+		S4_camXOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 100 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 93, -0.0166666666666667 }, Flags = { Linear = true } },
+				[279] = { -0.05, LH = { 186, -0.0333333333333333 }, RH = { 323, -0.0333333333333333 }, Flags = { Linear = true } },
+				[411] = { 0, LH = { 367, -0.0166666666666667 }, RH = { 454, 0.0466666666666667 }, Flags = { Linear = true } },
+				[540] = { 0.14, LH = { 497, 0.0933333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S4_camZOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 182 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 93, 0 }, Flags = { Linear = true } },
+				[279] = { 0, LH = { 186, 0 }, RH = { 366, 0.15 }, Flags = { Linear = true } },
+				[540] = { 0.45, LH = { 453, 0.3 }, Flags = { Linear = true } }
+			}
+		},
+		S4_scene = Merge3D {
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "S4_bgPlane",
+					Source = "Output",
+				},
+				SceneInput2 = Input {
+					SourceOp = "S4_fgPlane",
+					Source = "Output",
+				},
+				SceneInput3 = Input {
+					SourceOp = "S4_pagePlane",
+					Source = "Output",
+				},
+				SceneInput4 = Input {
+					SourceOp = "S4_cam",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, 280.5 } },
+		},
+		S4_render = Renderer3D {
+			CustomData = {
+				ToolVersion = 2,
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "S4_scene",
+					Source = "Output",
+				},
+				OutputType = Input { Disabled = true, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 280.5 } },
+		},
+		S4_out = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S4_backdrop",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S4_render",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 280.5 } },
+		},
+		S5_bg = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.02, },
+				TopLeftGreen = Input { Value = 0.025, },
+				TopLeftBlue = Input { Value = 0.035, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1705, 478.5 } },
+		},
+		S5_restMirror_bot_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.16, 0.38 }, },
+				Width = Input { Value = 0.09, },
+				Height = Input { Value = 0.006, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1705, 577.5 } },
+		},
+		S5_restMirror_bot = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.8, },
+				TopLeftGreen = Input { Value = 0.82, },
+				TopLeftBlue = Input { Value = 0.9, },
+				EffectMask = Input {
+					SourceOp = "S5_restMirror_bot_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1705, 544.5 } },
+		},
+		S5_m_rm_bot = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_bg",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_restMirror_bot",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1815, 478.5 } },
+		},
+		S5_restMirror_top_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.16, 0.6 }, },
+				Width = Input { Value = 0.09, },
+				Height = Input { Value = 0.006, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1925, 577.5 } },
+		},
+		S5_restMirror_top = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.8, },
+				TopLeftGreen = Input { Value = 0.82, },
+				TopLeftBlue = Input { Value = 0.9, },
+				EffectMask = Input {
+					SourceOp = "S5_restMirror_top_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1925, 544.5 } },
+		},
+		S5_m_rm_top = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_rm_bot",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_restMirror_top",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2035, 478.5 } },
+		},
+		S5_restPhoton_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					Value = { 0.16, 0.423333333333333 },
+					Expression = "Point(0.16, 0.39 + 0.20*abs(((time-540) - floor((time-540)/36)*36)/36*2-1))",
+				},
+				Width = Input { Value = 0.012, },
+				Height = Input { Value = 0.012, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2145, 577.5 } },
+		},
+		S5_restPhoton = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.9, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "S5_restPhoton_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 2145, 544.5 } },
+		},
+		S5_m_rp = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_rm_top",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_restPhoton",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2255, 478.5 } },
+		},
+		S5_moveMirror_bot_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					Value = { 2.3416, 0.38 },
+					Expression = "Point((0.34 + 0.0048*max(time-540,0)), 0.38)",
+				},
+				Width = Input { Value = 0.09, },
+				Height = Input { Value = 0.006, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2365, 577.5 } },
+		},
+		S5_moveMirror_bot = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.8, },
+				TopLeftGreen = Input { Value = 0.82, },
+				TopLeftBlue = Input { Value = 0.9, },
+				EffectMask = Input {
+					SourceOp = "S5_moveMirror_bot_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 2365, 544.5 } },
+		},
+		S5_m_mm_bot = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_rp",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_moveMirror_bot",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2475, 478.5 } },
+		},
+		S5_moveMirror_top_m = RectangleMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					Value = { 2.3416, 0.6 },
+					Expression = "Point((0.34 + 0.0048*max(time-540,0)), 0.6)",
+				},
+				Width = Input { Value = 0.09, },
+				Height = Input { Value = 0.006, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2585, 577.5 } },
+		},
+		S5_moveMirror_top = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.8, },
+				TopLeftGreen = Input { Value = 0.82, },
+				TopLeftBlue = Input { Value = 0.9, },
+				EffectMask = Input {
+					SourceOp = "S5_moveMirror_top_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 2585, 544.5 } },
+		},
+		S5_m_mm_top = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_mm_bot",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_moveMirror_top",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2695, 478.5 } },
+		},
+		S5_movePhoton_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.001, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input {
+					Value = { 2.3416, 0.454 },
+					Expression = "Point((0.34 + 0.0048*max(time-540,0)), 0.39 + 0.20*abs(((time-540) - floor((time-540)/50)*50)/50*2-1))",
+				},
+				Width = Input { Value = 0.012, },
+				Height = Input { Value = 0.012, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2805, 577.5 } },
+		},
+		S5_movePhoton = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.9, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "S5_movePhoton_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 2805, 544.5 } },
+		},
+		S5_m_mp = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_mm_top",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_movePhoton",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 2915, 478.5 } },
+		},
+		S5_lblRest = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.16, 0.72 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.95, },
+				Green1 = Input { Value = 0.93, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "CLOCK AT REST", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.03, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3025, 544.5 } },
+			Version = 1
+		},
+		S5_m_l1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_mp",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_lblRest",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3135, 478.5 } },
+		},
+		S5_lblMove = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.6, 0.72 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.95, },
+				Green1 = Input { Value = 0.93, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "MOVING CLOCK", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.03, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3245, 544.5 } },
+			Version = 1
+		},
+		S5_m_l2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S5_m_l1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_lblMove",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3355, 478.5 } },
+		},
+		S5_lblRule = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.16 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.85, },
+				Blue1 = Input { Value = 0.55, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "Same speed of light  ·  longer path  ·  slower ticks", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.034, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3465, 544.5 } },
+			Version = 1
+		},
+		S5_m_l3 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S5_m_l3Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S5_m_l2",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_lblRule",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3575, 478.5 } },
+		},
+		S5_m_l3Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 195, 0 }, Flags = { Linear = true } },
+				[585] = { 0, LH = { 390, 0 }, RH = { 588.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[595] = { 1, LH = { 591.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S5_glow = SoftGlow {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				Threshold = Input { Value = 0.35, },
+				Gain = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "S5_m_l3",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 3685, 478.5 } },
+		},
+		MAP_relSwitch = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_relSwitchBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S4_out",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S5_glow",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 1138.5 } },
+		},
+		MAP_relSwitchBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 179.666666666667, 0 }, Flags = { Linear = true } },
+				[539] = { 0, LH = { 359.333333333333, 0 }, RH = { 541, 0.333333333333333 }, Flags = { Linear = true } },
+				[545] = { 1, LH = { 543, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_m_card_n4 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_card_n4Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_frame_n4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_relSwitch",
+					Source = "Output",
+				},
+				Center = Input { Value = { 0.2, 0.25 }, },
+				Size = Input { Value = 0.84, },
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3685, 1006.5 } },
+		},
+		MAP_m_card_n4Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 97, 0 }, Flags = { Linear = true } },
+				[291] = { 0, LH = { 194, 0 }, RH = { 293.666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+				[299] = { 1, LH = { 296.333333333333, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_title_n4 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.2, 0.06 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.88, },
+				Blue1 = Input { Value = 0.62, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "SPECIAL RELATIVITY", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.016, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3795, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_title_n4 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_title_n4Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_card_n4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_title_n4",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 3905, 1006.5 } },
+		},
+		MAP_m_title_n4Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 97.6666666666667, 0 }, Flags = { Linear = true } },
+				[293] = { 0, LH = { 195.333333333333, 0 }, RH = { 296.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[303] = { 1, LH = { 299.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_sub_n4 = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.2, 0.025 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.85, },
+				Green1 = Input { Value = 0.85, },
+				Blue1 = Input { Value = 0.88, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "time is not the same for everyone", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Italic", },
+				Size = Input { Value = 0.011, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4015, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_sub_n4 = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "MAP_m_sub_n4Blend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "MAP_m_title_n4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_sub_n4",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4125, 1006.5 } },
+		},
+		MAP_m_sub_n4Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 99, 0 }, Flags = { Linear = true } },
+				[297] = { 0, LH = { 198, 0 }, RH = { 300.333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[307] = { 1, LH = { 303.666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_ring_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.004, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Width = Input { Value = 0.128, },
+				Height = Input { Value = 0.128, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4235, 1105.5 } },
+		},
+		MAP_ring = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.85, },
+				TopLeftBlue = Input { Value = 0.55, },
+				EffectMask = Input {
+					SourceOp = "MAP_ring_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 4232.33, 1072.5 } },
+		},
+		MAP_m_ring = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_sub_n4",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_ring",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4345, 1006.5 } },
+		},
+		S6_backdrop = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 0.06, },
+				TopLeftGreen = Input { Value = 0.05, },
+				TopLeftBlue = Input { Value = 0.045, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4345, 676.5 } },
+		},
+		S6_bgPlane = ImagePlane3D {
+			Inputs = {
+				["Transform3DOp.Translate.Z"] = Input { Value = -2.7, },
+				["Transform3DOp.Scale.X"] = Input { Value = 1.55, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 7, },
+				MaterialInput = Input {
+					SourceOp = "S6_bgPNG",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 7, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4015, 643.5 } },
+		},
+		S6_fgPlane = ImagePlane3D {
+			Inputs = {
+				["Transform3DOp.Translate.Z"] = Input { Value = -2, },
+				["Transform3DOp.Scale.X"] = Input { Value = 1.08, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 8, },
+				MaterialInput = Input {
+					SourceOp = "S6_fgPNG",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 8, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4015, 610.5 } },
+		},
+		S6_cam = Camera3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input {
+					SourceOp = "S6_camXOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Y"] = Input {
+					SourceOp = "S6_camYOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Z"] = Input {
+					SourceOp = "S6_camZOffset",
+					Source = "Value",
+				},
+				AoV = Input { Value = 19.2642683071402, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 9, },
+				["MtlStdInputs.MaterialID"] = Input { Value = 9, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4125, 643.5 } },
+		},
+		S6_camXOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 100 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 223, -0.01 }, Flags = { Linear = true } },
+				[669] = { -0.03, LH = { 446, -0.02 }, RH = { 775.666666666667, 0.09 }, Flags = { Linear = true } },
+				[989] = { 0.33, LH = { 882.333333333333, 0.21 }, Flags = { Linear = true } }
+			}
+		},
+		S6_camYOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 100 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 223, 0 }, Flags = { Linear = true } },
+				[669] = { 0, LH = { 446, 0 }, RH = { 775.666666666667, 0.0566666666666667 }, Flags = { Linear = true } },
+				[989] = { 0.17, LH = { 882.333333333333, 0.113333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S6_camZOffset = BezierSpline {
+			SplineColor = { Red = 244, Green = 169, Blue = 182 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 223, 0 }, Flags = { Linear = true } },
+				[669] = { 0, LH = { 446, 0 }, RH = { 775.666666666667, 0.25 }, Flags = { Linear = true } },
+				[989] = { 0.75, LH = { 882.333333333333, 0.5 }, Flags = { Linear = true } }
+			}
+		},
+		S6_scene = Merge3D {
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "S6_bgPlane",
+					Source = "Output",
+				},
+				SceneInput2 = Input {
+					SourceOp = "S6_fgPlane",
+					Source = "Output",
+				},
+				SceneInput3 = Input {
+					SourceOp = "S6_cam",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 4235, 610.5 } },
+		},
+		S6_render = Renderer3D {
+			CustomData = {
+				ToolVersion = 2,
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "S6_scene",
+					Source = "Output",
+				},
+				OutputType = Input { Disabled = true, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4345, 610.5 } },
+		},
+		S6_m = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "S6_backdrop",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S6_render",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4455, 610.5 } },
+		},
+		S6_windowGlow_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.3, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.8, 0.72 }, },
+				Width = Input { Value = 0.6, },
+				Height = Input { Value = 0.9, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4455, 709.5 } },
+		},
+		S6_windowGlow = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.86, },
+				TopLeftBlue = Input { Value = 0.62, },
+				EffectMask = Input {
+					SourceOp = "S6_windowGlow_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 4348.33, 836.5 } },
+		},
+		S6_m_glow = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S6_m_glowBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S6_m",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S6_windowGlow",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4565, 610.5 } },
+		},
+		S6_m_glowBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 286.666666666667, 0 }, Flags = { Linear = true } },
+				[860] = { 0, LH = { 573.333333333333, 0 }, RH = { 890, 0.233333333333333 }, Flags = { Linear = true } },
+				[950] = { 0.7, LH = { 920, 0.466666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		S6_toWhite = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 0.97, },
+				TopLeftBlue = Input { Value = 0.92, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4565, 676.5 } },
+		},
+		S6_m_white = Merge {
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S6_m_whiteBlend",
+					Source = "Value",
+				},
+				Background = Input {
+					SourceOp = "S6_m_glow",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S6_toWhite",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4675, 610.5 } },
+		},
+		S6_m_whiteBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 319.333333333333, 0 }, Flags = { Linear = true } },
+				[958] = { 0, LH = { 638.666666666667, 0 }, RH = { 968, 0.333333333333333 }, Flags = { Linear = true } },
+				[988] = { 1, LH = { 978, 0.666666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		MAP_centre_m = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.002, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Width = Input { Value = 0.12, },
+				Height = Input { Value = 0.12, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4455, 1105.5 } },
+		},
+		MAP_m_centre = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_ring",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "S6_m_white",
+					Source = "Output",
+				},
+				Size = Input { Value = 0.45, },
+				PerformDepthMerge = Input { Value = 0, },
+				EffectMask = Input {
+					SourceOp = "MAP_centre_m",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 4565, 1006.5 } },
+		},
+		MAP_yr = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.335 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Green1 = Input { Value = 0.9, },
+				Blue1 = Input { Value = 0.65, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "1905", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.03, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4675, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_yr = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_centre",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_yr",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4785, 1006.5 } },
+		},
+		MAP_yrsub = TextPlus {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 5760, },
+				Height = Input { Value = 3240, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				Center = Input { Value = { 0.5, 0.295 }, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Red1 = Input { Value = 0.88, },
+				Green1 = Input { Value = 0.88, },
+				Blue1 = Input { Value = 0.9, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input { Value = "EINSTEIN'S MIRACLE YEAR", },
+				Font = Input { Value = "Georgia", },
+				Style = Input { Value = "Regular", },
+				Size = Input { Value = 0.012, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 4895, 1072.5 } },
+			Version = 1
+		},
+		MAP_m_yrsub = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_m_yr",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_yrsub",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 5005, 1006.5 } },
+		},
+		MAP_glow = SoftGlow {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				Threshold = Input { Value = 0.55, },
+				Gain = Input { Value = 0.6, },
+				XGlowSize = Input { Value = 20, },
+				Input = Input {
+					SourceOp = "MAP_m_yrsub",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 5115, 1006.5 } },
+		},
+		MAP_camera = Merge {
+			CtrlWZoom = false,
+			Inputs = {
+				Background = Input {
+					SourceOp = "MAP_out",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "MAP_glow",
+					Source = "Output",
+				},
+				Center = Input {
+					SourceOp = "XYPath14",
+					Source = "Value",
+				},
+				Size = Input {
+					SourceOp = "MAP_cameraSize",
+					Source = "Value",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 5335, 1006.5 } },
+		},
+		XYPath14 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input {
+					SourceOp = "XYPath14X",
+					Source = "Value",
+				},
+				Y = Input {
+					SourceOp = "XYPath14Y",
+					Source = "Value",
+				}
+			},
+		},
+		MAP_cameraSize = BezierSpline {
+			SplineColor = { Red = 225, Green = 0, Blue = 225 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.36, RH = { 2.66666666666667, 0.373333333333333 }, Flags = { Linear = true } },
+				[8] = { 0.4, LH = { 5.33333333333333, 0.386666666666667 }, RH = { 12.6666666666667, 0.583333333333333 }, Flags = { Linear = true } },
+				[22] = { 0.95, LH = { 17.3333333333333, 0.766666666666667 }, RH = { 23.3333333333333, 0.95 }, Flags = { Linear = true } },
+				[26] = { 0.95, LH = { 24.6666666666667, 0.95 }, RH = { 52, 0.973333333333333 }, Flags = { Linear = true } },
+				[104] = { 1.02, LH = { 78, 0.996666666666667 }, RH = { 108.666666666667, 0.996666666666667 }, Flags = { Linear = true } },
+				[118] = { 0.95, LH = { 113.333333333333, 0.973333333333333 }, RH = { 135.333333333333, 0.973333333333333 }, Flags = { Linear = true } },
+				[170] = { 1.02, LH = { 152.666666666667, 0.996666666666667 }, RH = { 175.333333333333, 0.996666666666667 }, Flags = { Linear = true } },
+				[186] = { 0.95, LH = { 180.666666666667, 0.973333333333333 }, RH = { 215.666666666667, 0.973333333333333 }, Flags = { Linear = true } },
+				[275] = { 1.02, LH = { 245.333333333333, 0.996666666666667 }, RH = { 281, 0.996666666666667 }, Flags = { Linear = true } },
+				[293] = { 0.95, LH = { 287, 0.973333333333333 }, RH = { 372, 0.993333333333333 }, Flags = { Linear = true } },
+				[530] = { 1.08, LH = { 451, 1.03666666666667 }, RH = { 540, 1.08666666666667 }, Flags = { Linear = true } },
+				[560] = { 1.1, LH = { 550, 1.09333333333333 }, RH = { 595, 1.10666666666667 }, Flags = { Linear = true } },
+				[665] = { 1.12, LH = { 630, 1.11333333333333 }, RH = { 676.666666666667, 0.857666666666667 }, Flags = { Linear = true } },
+				[700] = { 0.333, LH = { 688.333333333333, 0.595333333333333 }, RH = { 766.666666666667, 0.342 }, Flags = { Linear = true } },
+				[900] = { 0.36, LH = { 833.333333333333, 0.351 }, RH = { 925, 1.10666666666667 }, Flags = { Linear = true } },
+				[975] = { 2.6, LH = { 950, 1.85333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath14X = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 2.66666666666667, 0.5 }, Flags = { Linear = true } },
+				[8] = { 0.5, LH = { 5.33333333333333, 0.5 }, RH = { 12.6666666666667, 0.785 }, Flags = { Linear = true } },
+				[22] = { 1.355, LH = { 17.3333333333333, 1.07 }, RH = { 23.3333333333333, 1.355 }, Flags = { Linear = true } },
+				[26] = { 1.355, LH = { 24.6666666666667, 1.355 }, RH = { 52, 1.376 }, Flags = { Linear = true } },
+				[104] = { 1.418, LH = { 78, 1.397 }, RH = { 108.666666666667, 0.827 }, Flags = { Linear = true } },
+				[118] = { -0.355, LH = { 113.333333333333, 0.236 }, RH = { 135.333333333333, -0.376 }, Flags = { Linear = true } },
+				[170] = { -0.418, LH = { 152.666666666667, -0.397 }, RH = { 175.333333333333, -0.397 }, Flags = { Linear = true } },
+				[186] = { -0.355, LH = { 180.666666666667, -0.376 }, RH = { 215.666666666667, -0.376 }, Flags = { Linear = true } },
+				[275] = { -0.418, LH = { 245.333333333333, -0.397 }, RH = { 281, 0.173 }, Flags = { Linear = true } },
+				[293] = { 1.355, LH = { 287, 0.764 }, RH = { 372, 1.394 }, Flags = { Linear = true } },
+				[530] = { 1.472, LH = { 451, 1.433 }, RH = { 540, 1.478 }, Flags = { Linear = true } },
+				[560] = { 1.49, LH = { 550, 1.484 }, RH = { 595, 1.496 }, Flags = { Linear = true } },
+				[665] = { 1.508, LH = { 630, 1.502 }, RH = { 676.666666666667, 1.172 }, Flags = { Linear = true } },
+				[700] = { 0.5, LH = { 688.333333333333, 0.836 }, RH = { 766.666666666667, 0.5 }, Flags = { Linear = true } },
+				[900] = { 0.5, LH = { 833.333333333333, 0.5 }, RH = { 925, 0.5 }, Flags = { Linear = true } },
+				[975] = { 0.5, LH = { 950, 0.5 }, Flags = { Linear = true } }
+			}
+		},
+		XYPath14Y = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.5, RH = { 2.66666666666667, 0.5 }, Flags = { Linear = true } },
+				[8] = { 0.5, LH = { 5.33333333333333, 0.5 }, RH = { 12.6666666666667, 0.2625 }, Flags = { Linear = true } },
+				[22] = { -0.2125, LH = { 17.3333333333333, 0.0250000000000001 }, RH = { 23.3333333333333, -0.2125 }, Flags = { Linear = true } },
+				[26] = { -0.2125, LH = { 24.6666666666667, -0.2125 }, RH = { 52, -0.23 }, Flags = { Linear = true } },
+				[104] = { -0.265, LH = { 78, -0.2475 }, RH = { 108.666666666667, -0.2475 }, Flags = { Linear = true } },
+				[118] = { -0.2125, LH = { 113.333333333333, -0.23 }, RH = { 135.333333333333, -0.23 }, Flags = { Linear = true } },
+				[170] = { -0.265, LH = { 152.666666666667, -0.2475 }, RH = { 175.333333333333, 0.2275 }, Flags = { Linear = true } },
+				[186] = { 1.2125, LH = { 180.666666666667, 0.72 }, RH = { 215.666666666667, 1.23 }, Flags = { Linear = true } },
+				[275] = { 1.265, LH = { 245.333333333333, 1.2475 }, RH = { 281, 1.2475 }, Flags = { Linear = true } },
+				[293] = { 1.2125, LH = { 287, 1.23 }, RH = { 372, 1.245 }, Flags = { Linear = true } },
+				[530] = { 1.31, LH = { 451, 1.2775 }, RH = { 540, 1.315 }, Flags = { Linear = true } },
+				[560] = { 1.325, LH = { 550, 1.32 }, RH = { 595, 1.33 }, Flags = { Linear = true } },
+				[665] = { 1.34, LH = { 630, 1.335 }, RH = { 676.666666666667, 1.06 }, Flags = { Linear = true } },
+				[700] = { 0.5, LH = { 688.333333333333, 0.78 }, RH = { 766.666666666667, 0.5 }, Flags = { Linear = true } },
+				[900] = { 0.5, LH = { 833.333333333333, 0.5 }, RH = { 925, 0.5 }, Flags = { Linear = true } },
+				[975] = { 0.5, LH = { 950, 0.5 }, Flags = { Linear = true } }
+			}
+		},
+		Finish_Contrast = BrightnessContrast {
+			Inputs = {
+				Contrast = Input { Value = 0.08, },
+				Saturation = Input { Value = 0.85, },
+				Input = Input {
+					SourceOp = "MAP_camera",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 5445, 16.5 } },
+		},
+		Finish_Grain = FilmGrain {
+			Inputs = {
+				MasterStrength = Input { Value = 0.025, },
+				Input = Input {
+					SourceOp = "Finish_Contrast",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 5555, 16.5 } },
+		},
+		Finish_VigShape = EllipseMask {
+			Inputs = {
+				Filter = Input { Value = FuID { "Fast Gaussian" }, },
+				SoftEdge = Input { Value = 0.45, },
+				Invert = Input { Value = 1, },
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Width = Input { Value = 1.25, },
+				Height = Input { Value = 1.25, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 5555, 115.5 } },
+		},
+		Finish_VigBlack = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 989, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				EffectMask = Input {
+					SourceOp = "Finish_VigShape",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 5883, 82.5 } },
+		},
+		Finish_Vignette = Merge {
+			Inputs = {
+				Blend = Input { Value = 0.65, },
+				Background = Input {
+					SourceOp = "Finish_Grain",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Finish_VigBlack",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 5665, 16.5 } },
+		},
+		MediaOut1 = Saver {
+			Inputs = {
+				Index = Input { Value = "0", },
+				Input = Input {
+					SourceOp = "Finish_Vignette",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 2677, 27.6818 } },
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Default",
+			Left = 0,
+			Top = 0,
+			Width = 1680,
+			Height = 881,
+			ZoneInfo = { AuxRight = { Expanded = true }, ["!Left"] = {
+				}, AuxLeft = { Expanded = true }, Right = { Expanded = true, }, Left = { Expanded = false, }, ["!Right"] = {
+				} },
+			ViewInfo = { Viewer1 = { Show = true, RatioX = 0.110936022691459, RatioY = 0.01, }, InnerLeft = { RatioY = 100, PixelX = 420, }, MainSplit = { RatioX = 100, RatioY = 0.891304347826087, }, CenterSplit = { RatioX = 1, RatioY = 100, }, Viewer2 = { Show = true, RatioX = 1.99432713520328, RatioY = 0.01, }, Comments = { Show = false }, Time = { Show = true, RatioX = 100, }, InnerColumns = { RatioX = 100, RatioY = 2.10869565217391, }, Keyframes = { Show = false, Adjust = true, RatioX = 0.99933110367893, RatioY = 100, MRU = 0 }, LayoutStrip = { Show = true, }, Inspector = { Show = true, RatioX = 100, RatioY = 1, }, InnerRight = {
+				}, MediaPool = { Show = true, Adjust = false, RatioX = 1, RatioY = 100, MRU = 4 }, OuterColumns = { RatioX = 100, RatioY = 1, }, Effects = { Show = false, Adjust = true, RatioX = 1, RatioY = 100, MRU = 0 }, ActionStrip = { Show = true, RatioX = 100, }, Metadata = { Show = false, }, OuterLeft = {
+				}, ViewerSplit = { RatioX = 100, RatioY = 1, }, Nodes = { Show = true, RatioX = 0.998741558911872, RatioY = 100, }, OuterRight = { PixelX = 420, RatioY = 100, }, Clips = { Show = false, }, Spline = { Show = false, Adjust = true, RatioX = 1.0019273374092, RatioY = 100, MRU = 0 } },
+			Views = ordered() {
+				MediaPool = "MediaPoolView",
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							Navigator = true,
+							AutoHideNavigator = true,
+							ForceSource = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						RootScale = 0.25,
+						RootOffset = { -1855, -868.879 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = true,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 184 },
+							ScaleX = 1.0053164556962,
+							OffsetX = 25.132911392405,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = true,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.105681818181818,
+						ScaleY = 0.00845070422535211,
+						OffsetX = 4.22727272727273,
+						OffsetY = -0.101408450704226,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = true,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView",
+				Clips = "ClipsView",
+				Metadata = "MetadataView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+								{ ID = "Effects", RatioX = 1 },
+								PaneID = "InnerLeft",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Left"
+							},
+							{
+								{
+									{ ID = "Viewer1", RatioY = 0.01, RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Photo = false, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{
+								{ ID = "Inspector", RatioY = 1 },
+								{ ID = "Metadata", RatioY = 1, Fusion = false },
+								PaneID = "InnerRight",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Right"
+							},
+							RatioY = 2,
+							Columns = 3,
+							PaneID = "InnerColumns"
+						},
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{ ID = "Nodes", RatioX = 1 },
+							{ ID = "Spline", Photo = false, RatioX = 1 },
+							{ ID = "Keyframes", Photo = false, RatioX = 1 },
+							RatioY = 1,
+							Columns = 3,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Paths = {
+				Map = {
+					["ResolveCaches:"] = "C:\\Users\\USER\\Videos\\CacheClip\\050c1f5d-c09b-4087-af32-acd6f7a0f5bc\\c4db4f0c-a0df-4bd8-a3a2-f7ab743858bf\\a9d78f48-bd08-4d4f-b833-5249399480f9\\Fusion",
+				},
+			},
+			FlowView = {
+				ForceSource = true,
+				ForceActive = true,
+				PipesOnTop = true,
+				ConnectedSnap = true,
+				GridSnap = true,
+				Direction = 1
+			},
+			LastFile = "D:\\Shorts Portfolio\\typog5raphy\\",
+			Interactive = {
+				Proxy = {
+					Scale = 1,
+				},
+			},
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+				DepthInteractive = 3,
+				DepthPreview = 3,
+				DepthFull = 3,
+			},
+			SpellCheck = {
+				Language = "auto",
+			},
+			Unsorted = {
+				GlobalEnd = 989,
+			},
+			Views = {
+				RightView = {
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					Viewer = {
+						Layer = ":Default",
+					},
+				},
+				LeftView = {
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+				},
+				View1 = {
+					PrevCtrlInactiveColor = 4278255360,
+					PickW = 1,
+					PickH = 1,
+					PrevCtrlActiveColor = 4278190335,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					}
+				},
+				Defaults = {
+					Viewer = {
+						Layer = "",
+					},
+					Guides = {
+						SafeImage = true,
+						Center = true,
+						SafeTitle = true,
+					},
+				},
+			},
+		}
+	},
+}
