@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition, Still } from "remotion";
 import { Main } from "./scenes/Main";
+import { MilkyWay } from "./scenes/MilkyWay";
 import { DarkScene } from "./scenes/DarkScene";
 import { LightScene } from "./scenes/LightScene";
 
@@ -14,6 +15,14 @@ export const RemotionRoot: React.FC = () => {
         id="Main"
         component={Main}
         durationInFrames={855}
+        fps={30}
+        width={W}
+        height={H}
+      />
+      <Composition
+        id="MilkyWay"
+        component={MilkyWay}
+        durationInFrames={2175}
         fps={30}
         width={W}
         height={H}
@@ -35,6 +44,27 @@ export const RemotionRoot: React.FC = () => {
           seed: 7,
           visual: "sphere" as const,
           progress: 0.55,
+        }}
+      />
+      <Composition
+        id="SpiralTest"
+        component={DarkScene}
+        durationInFrames={150}
+        fps={30}
+        width={W}
+        height={H}
+        defaultProps={{
+          index: "04",
+          label: "THE DISC",
+          unit: "LIGHT YEARS ACROSS",
+          value: "100,000",
+          caption: "A hundred thousand across.",
+          playhead: 0.62,
+          seed: 5,
+          visual: "spiral" as const,
+          datum: "SUN",
+          datumAt: 0.62,
+          progress: 0.4,
         }}
       />
       <Still

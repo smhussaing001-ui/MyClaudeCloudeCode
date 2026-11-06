@@ -165,3 +165,107 @@ export const ContourField: React.FC<{
     </svg>
   );
 };
+
+/**
+ * Dotted spiral galaxy, seen face-on. Logarithmic arms sampled at uniform arc
+ * length so dot density stays even from core to rim — the same rule the
+ * sphere uses, and the thing that makes these read as drawn rather than
+ * scattered. Core is denser; an accent mark sits out on one arm.
+ */
+export const DottedSpiral: React.FC<{
+  size: number;
+  arms?: number;
+  seed?: number;
+  /** Frame range over which the arms draw outward. */
+  range?: [number, number];
+  /** Fraction along an arm where the accent "you are here" sits, 0-1. */
+  markerAt?: number;
+  showMarker?: boolean;
+}> = ({ size, arms = 4, seed = 5, range = [0, 60], markerAt = 0.8, showMarker = true }) => {
+  const frame = useCurrentFrame();
+  const r = size / 2;
+  const dotR = size * 0.0055;
+
+  const { pts, core, marker } = useMemo(() => {
+    const rnd = mulberry(seed);
+    const P: { x: number; y: number; d: number; o: number }[] = [];
+    const B = 0.26; // spiral tightness
+    const TURN = 2.5; // radians of sweep per arm
+    let mk = { x: r, y: r };
+    for (let a = 0; a < arms; a++) {
+      const off = (a / arms) * Math.PI * 2;
+      const steps = 240;
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const th = t * TURN * Math.PI;
+        const rad = r * 0.1 * Math.exp(B * th);
+        if (rad > r * 0.95) break;
+        // scatter thickens the arm outward, as in a real disc
+        const spread = size * (0.003 + t * 0.03);
+        const n = 1;
+        for (let k = 0; k < n; k++) {
+          const jx = (rnd() - 0.5) * spread * 2;
+          const jy = (rnd() - 0.5) * spread * 2;
+          const x = r + Math.cos(th + off) * rad + jx;
+          const y = r + Math.sin(th + off) * rad + jy;
+          if (Math.hypot(x - r, y - r) < r * 0.97) P.push({ x, y, d: t, o: 0.5 + rnd() * 0.5 });
+        }
+        if (a === 1 && Math.abs(t - markerAt) < 1 / steps) {
+          mk = { x: r + Math.cos(th + off) * rad, y: r + Math.sin(th + off) * rad };
+        }
+      }
+    }
+    // core bulge
+    const Cd: { x: number; y: number; o: number }[] = [];
+    for (let i = 0; i < 85; i++) {
+      const a2 = rnd() * Math.PI * 2;
+      const d2 = Math.pow(rnd(), 2.3) * r * 0.13;
+      Cd.push({ x: r + Math.cos(a2) * d2, y: r + Math.sin(a2) * d2 * 0.88, o: 0.45 + rnd() * 0.55 });
+    }
+    return { pts: P, core: Cd, marker: mk };
+  }, [seed, arms, r, size, markerAt]);
+
+  // arms draw from the core outward
+  const grown = interpolate(frame, range, [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.bezier(...EASE),
+  });
+  const coreO = interpolate(frame, [range[0], range[0] + 14], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.bezier(...EASE),
+  });
+  const mO = interpolate(frame, [range[1] * 0.75, range[1] * 0.75 + 16], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.bezier(...EASE),
+  });
+
+  return (
+    <svg width={size} height={size} style={{ display: "block", overflow: "visible" }}>
+      {core.map((p, i) => (
+        <circle key={`c${i}`} cx={p.x} cy={p.y} r={dotR * 1.15} fill={C.white} opacity={p.o * coreO} />
+      ))}
+      {pts.map((p, i) =>
+        p.d <= grown ? (
+          <circle key={i} cx={p.x} cy={p.y} r={dotR} fill={C.white} opacity={p.o} />
+        ) : null,
+      )}
+      {showMarker ? (
+        <g opacity={mO}>
+          <circle cx={marker.x} cy={marker.y} r={size * 0.014} fill={C.accent} />
+          <circle
+            cx={marker.x}
+            cy={marker.y}
+            r={size * 0.045}
+            fill="none"
+            stroke={C.accent}
+            strokeWidth={size * 0.0035}
+            opacity={0.65}
+          />
+        </g>
+      ) : null}
+    </svg>
+  );
+};

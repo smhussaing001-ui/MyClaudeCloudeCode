@@ -5,7 +5,7 @@ import { F } from "../lib/fonts";
 import { Ruler } from "../lib/Ruler";
 import { Odometer } from "../lib/Odometer";
 import { Caption, SectionLabel, Scrubber, UnitLabel } from "../lib/Chrome";
-import { DottedSphere, ContourField } from "../lib/Diagram";
+import { DottedSphere, DottedSpiral, ContourField } from "../lib/Diagram";
 
 export type DarkSceneProps = {
   index: string;
@@ -18,7 +18,10 @@ export type DarkSceneProps = {
   datumAt?: number;
   rightLabel?: string;
   seed?: number;
-  visual?: "sphere" | "contour" | "none";
+  visual?: "sphere" | "spiral" | "contour" | "none";
+  /** Spiral only: where the accent "you are here" sits along an arm. */
+  markerAt?: number;
+  showMarker?: boolean;
   progress?: number;
 };
 
@@ -41,6 +44,8 @@ export const DarkScene: React.FC<DarkSceneProps> = ({
   rightLabel,
   seed = 7,
   visual = "sphere",
+  markerAt = 0.62,
+  showMarker = true,
   progress,
 }) => {
   const { width, height } = useVideoConfig();
@@ -115,7 +120,18 @@ export const DarkScene: React.FC<DarkSceneProps> = ({
             marginBottom: -height * 0.03,
           }}
         >
-          {visual === "sphere" ? <DottedSphere size={sphereSize} seed={seed} range={[4, 100]} /> : null}
+          {visual === "sphere" ? (
+            <DottedSphere size={sphereSize} seed={seed} range={[4, 100]} />
+          ) : null}
+          {visual === "spiral" ? (
+            <DottedSpiral
+              size={sphereSize * 1.12}
+              seed={seed}
+              range={[4, 104]}
+              markerAt={markerAt}
+              showMarker={showMarker}
+            />
+          ) : null}
         </div>
 
         {/* scale bar — full-bleed, allowed to run off the right edge */}
