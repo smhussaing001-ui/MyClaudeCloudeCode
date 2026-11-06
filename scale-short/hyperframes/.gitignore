@@ -1,0 +1,6 @@
+node_modules/
+out/
+.hyperframes/
+# GSAP is vendored into assets/js at build time from the npm package,
+# so it does not need to be tracked.
+milky-way/assets/js/

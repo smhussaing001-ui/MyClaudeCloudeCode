@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { width:1080px; height:1920px; overflow:hidden; background:#030303; }
+      #root { width:100%; height:100%; position:relative; overflow:hidden; }
+      #root > div[data-composition-src] { position:absolute; inset:0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="72.50"
+         data-width="1080" data-height="1920">
+      <div id="s00" data-composition-id="s00" data-composition-src="compositions/s00.html" data-start="0.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:1"></div>
+      <div id="s01" data-composition-id="s01" data-composition-src="compositions/s01.html" data-start="4.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:2"></div>
+      <div id="s02" data-composition-id="s02" data-composition-src="compositions/s02.html" data-start="9.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:3"></div>
+      <div id="s03" data-composition-id="s03" data-composition-src="compositions/s03.html" data-start="13.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:4"></div>
+      <div id="s04" data-composition-id="s04" data-composition-src="compositions/s04.html" data-start="18.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+      <div id="s05" data-composition-id="s05" data-composition-src="compositions/s05.html" data-start="22.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="s06" data-composition-id="s06" data-composition-src="compositions/s06.html" data-start="27.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:7"></div>
+      <div id="s07" data-composition-id="s07" data-composition-src="compositions/s07.html" data-start="31.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:8"></div>
+      <div id="s08" data-composition-id="s08" data-composition-src="compositions/s08.html" data-start="36.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:9"></div>
+      <div id="s09" data-composition-id="s09" data-composition-src="compositions/s09.html" data-start="40.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:10"></div>
+      <div id="s10" data-composition-id="s10" data-composition-src="compositions/s10.html" data-start="45.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:11"></div>
+      <div id="s11" data-composition-id="s11" data-composition-src="compositions/s11.html" data-start="49.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:12"></div>
+      <div id="s12" data-composition-id="s12" data-composition-src="compositions/s12.html" data-start="54.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:13"></div>
+      <div id="s13" data-composition-id="s13" data-composition-src="compositions/s13.html" data-start="58.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:14"></div>
+      <div id="s14" data-composition-id="s14" data-composition-src="compositions/s14.html" data-start="63.00" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:15"></div>
+      <div id="s15" data-composition-id="s15" data-composition-src="compositions/s15.html" data-start="67.50" data-duration="5.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:16"></div>
+    </div>
+    <script>
+      // The reference has zero hard cuts across its whole runtime. Scenes are
+      // overlapped by the slide length and pushed vertically: the incoming
+      // scene slides in while the one beneath it slides out.
+      const tl = gsap.timeline({ paused: true });
+  tl.to('#s00', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 4.50);
+  tl.fromTo('#s01', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 4.50);
+  tl.to('#s01', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 9.00);
+  tl.fromTo('#s02', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 9.00);
+  tl.to('#s02', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 13.50);
+  tl.fromTo('#s03', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 13.50);
+  tl.to('#s03', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 18.00);
+  tl.fromTo('#s04', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 18.00);
+  tl.to('#s04', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 22.50);
+  tl.fromTo('#s05', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 22.50);
+  tl.to('#s05', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 27.00);
+  tl.fromTo('#s06', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 27.00);
+  tl.to('#s06', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 31.50);
+  tl.fromTo('#s07', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 31.50);
+  tl.to('#s07', { yPercent: 100, duration: 0.5, ease: 'power2.inOut' }, 36.00);
+  tl.fromTo('#s08', { yPercent: -100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 36.00);
+  tl.to('#s08', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 40.50);
+  tl.fromTo('#s09', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 40.50);
+  tl.to('#s09', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 45.00);
+  tl.fromTo('#s10', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 45.00);
+  tl.to('#s10', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 49.50);
+  tl.fromTo('#s11', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 49.50);
+  tl.to('#s11', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 54.00);
+  tl.fromTo('#s12', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 54.00);
+  tl.to('#s12', { yPercent: 100, duration: 0.5, ease: 'power2.inOut' }, 58.50);
+  tl.fromTo('#s13', { yPercent: -100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 58.50);
+  tl.to('#s13', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 63.00);
+  tl.fromTo('#s14', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 63.00);
+  tl.to('#s14', { yPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 67.50);
+  tl.fromTo('#s15', { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: 'power2.inOut' }, 67.50);
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

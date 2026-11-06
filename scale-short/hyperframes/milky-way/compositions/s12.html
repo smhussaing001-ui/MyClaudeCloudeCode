@@ -1,0 +1,64 @@
+<template>
+  <style>
+    
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .stage { position:absolute; inset:0; }
+    .band { position:absolute; left:81px; right:81px; top:168px; bottom:590px;
+             display:flex; flex-direction:column; }
+    .chrome { display:flex; align-items:flex-start; justify-content:space-between; }
+    .sect { font-family:'JetBrains Mono',monospace; font-size:28px; letter-spacing:6.5px;
+             color:#FFFFFF; opacity:.85; white-space:nowrap; }
+    .figwrap { flex:1; display:flex; align-items:flex-end; justify-content:center; min-height:0; }
+    .rulerwrap { margin:0 -81px 24px; }
+    .unitrow { display:flex; align-items:center; gap:32px; }
+    .approx { font-family:'League Gothic',sans-serif; font-size:67px; color:#ED4839; line-height:.8; }
+    .unit { font-family:'JetBrains Mono',monospace; font-size:32px; letter-spacing:13px;
+             color:#EFEFE8; white-space:nowrap; }
+    .odo { display:flex; align-items:flex-end; font-family:'League Gothic',sans-serif;
+            line-height:1; color:#EFEFE8; font-variant-numeric:tabular-nums; }
+    .drum { display:inline-block; overflow:hidden; position:relative; }
+    .drum .col { position:absolute; left:0; top:0; display:flex; flex-direction:column;
+                  align-items:center; width:100%; }
+    .drum .d { height:var(--dh); line-height:1; display:block; }
+    .sep { display:inline-block; text-align:center; line-height:1; }
+    .cap { display:flex; align-items:center; gap:30px; margin-top:34px; }
+    .cap .txt { font-family:Inter,sans-serif; font-weight:700; font-size:58px; }
+    .datum { position:absolute; font-family:'JetBrains Mono',monospace; font-size:30px;
+              letter-spacing:6.5px; color:#FFFFFF; white-space:nowrap; transform:translateX(-50%); }
+
+    #root .sky { position:absolute; inset:0;
+      background:linear-gradient(180deg,#EBEBEB 0%,#DCDCDC 62%,#D4D4D4 100%); }
+    #root .floor { position:absolute; left:0; right:0; top:1305px; bottom:0;
+      background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.045) 100%); }
+    #root .mark { position:absolute; left:0; right:0; top:168px; bottom:590px;
+      display:flex; align-items:center; justify-content:center; }
+    #root .lcap { position:absolute; left:81px; top:1234px; display:flex;
+      align-items:center; gap:30px; }
+  </style>
+  <div id="root" data-composition-id="s12" data-width="1080" data-height="1920"
+       style="background:linear-gradient(180deg,#EBEBEB 0%,#DCDCDC 62%,#D4D4D4 100%)">
+    <div class="stage" id="s12-stage" data-layout-allow-overflow>
+      <div class="sky"></div>
+      <div class="floor"></div>
+      <div class="mark" id="s12-mark"><svg width="324" height="324" viewBox="0 0 324 324"><line class="sp" x1="162.0" y1="149.0" x2="162.0" y2="13.0" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="168.5" y1="150.8" x2="236.5" y2="32.9" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="173.2" y1="155.5" x2="291.1" y2="87.5" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="175.0" y1="162.0" x2="311.0" y2="162.0" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="173.2" y1="168.5" x2="291.1" y2="236.5" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="168.5" y1="173.2" x2="236.5" y2="291.1" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="162.0" y1="175.0" x2="162.0" y2="311.0" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="155.5" y1="173.2" x2="87.5" y2="291.1" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="150.8" y1="168.5" x2="32.9" y2="236.5" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="149.0" y1="162.0" x2="13.0" y2="162.0" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="150.8" y1="155.5" x2="32.9" y2="87.5" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/><line class="sp" x1="155.5" y1="150.8" x2="87.5" y2="32.9" stroke="#ED4839" stroke-width="16.8" stroke-linecap="round"/></svg></div>
+      <div class="lcap" id="s12-cap">
+        <span><svg width="40" height="40" viewBox="0 0 40 40"><line class="cb" x1="20.0" y1="18.4" x2="20.0" y2="1.6" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="20.8" y1="18.6" x2="29.2" y2="4.1" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="21.4" y1="19.2" x2="35.9" y2="10.8" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="21.6" y1="20.0" x2="38.4" y2="20.0" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="21.4" y1="20.8" x2="35.9" y2="29.2" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="20.8" y1="21.4" x2="29.2" y2="35.9" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="20.0" y1="21.6" x2="20.0" y2="38.4" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="19.2" y1="21.4" x2="10.8" y2="35.9" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="18.6" y1="20.8" x2="4.1" y2="29.2" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="18.4" y1="20.0" x2="1.6" y2="20.0" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="18.6" y1="19.2" x2="4.1" y2="10.8" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/><line class="cb" x1="19.2" y1="18.6" x2="10.8" y2="4.1" stroke="#ED4839" stroke-width="2.1" stroke-linecap="round"/></svg></span>
+        <span class="txt" style="font-family:Inter,sans-serif;font-weight:700;font-size:58px;color:#1A1A1A">We've been here before.</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo('#s12-stage', { scale: 1 }, { scale: 1.07, duration: 5.0, ease: 'none' }, 0);
+      tl.fromTo('#s12-stage', { y: -7 }, { y: 7, duration: 5.0, ease: 'sine.inOut' }, 0);
+      tl.fromTo('#s12 .sp', { scaleX: 0.06, scaleY: 0.06, transformOrigin: 'center' },
+        { scaleX: 1, scaleY: 1, duration: 2.0, ease: 'power3.out' }, 0.13);
+      tl.fromTo('#s12-cap', { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 1.0);
+      tl.fromTo('#s12 .cb', { scaleX: 0.1, scaleY: 0.1, transformOrigin: 'center' },
+        { scaleX: 1, scaleY: 1, duration: 0.5, ease: 'power3.out' }, 1.0);
+      window.__timelines['s12'] = tl;
+    })();
+  </script>
+</template>
