@@ -1,4 +1,4 @@
-"""Create the Anton captions in orange and black, then build the final video.
+"""Create the Anton captions in red and black, then build the final video.
 
     python finish.py            frames_v3 + vo.mp3 + timing.json -> crane_short_v3.mp4 + .srt
     python finish.py --test FRAME.jpg t     one caption test still at time t, to preview/
@@ -17,7 +17,7 @@ W, H = 1080, 1920
 ANTON = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\Windows\Fonts\Anton-Regular.ttf")
 BIG = ImageFont.truetype(ANTON, 104)
 SMALL = ImageFont.truetype(ANTON, 58)
-ORANGE, BLACK = (255, 106, 0, 255), (10, 10, 12, 255)
+ORANGE, BLACK = (249, 60, 29, 255), (10, 10, 12, 255)
 CAP_Y, LABEL_Y = 400, 1490  # inside the Shorts safe area
 # word in the VO -> label held on screen while its part is glowing
 LABELS = {"jib.": "JIB", "counterweight.": "COUNTERWEIGHT", "twenty": "20 TONS", "jacks": "JACK",
@@ -53,7 +53,7 @@ def caption_layer(mid):
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     now = [w for w in words if w["start"] / TEMPO <= mid < w["end"] / TEMPO + 0.12]
     if now:
-        pill(im, clean(now[-1]["w"]), BIG, CAP_Y, BLACK, ORANGE, (255, 90, 0, 170))
+        pill(im, clean(now[-1]["w"]), BIG, CAP_Y, BLACK, ORANGE, (255, 39, 13, 170))
     for l0, l1, text in labels:
         if l0 <= mid < l1:
             # up by the counterweight: the low spot would cover the worker's face in this shot

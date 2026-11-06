@@ -380,7 +380,7 @@ NEONS, HILITES = [], []
 
 
 def neon(o, a, b, thick=0.05, power=5.0):
-    """Wrap an object in a pulsing neon-orange shell between frames a and b."""
+    """Wrap an object in a pulsing neon-red shell between frames a and b."""
     c = obj(o.name + "_neon", o.data, (), o)
     m = bpy.data.materials.new(o.name + "_neon")
     m.use_nodes = True
@@ -388,7 +388,7 @@ def neon(o, a, b, thick=0.05, power=5.0):
     nt.nodes.clear()
     out_ = nt.nodes.new("ShaderNodeOutputMaterial")
     em = nt.nodes.new("ShaderNodeEmission")
-    em.inputs[0].default_value = (*NEON, 1)  # stays orange when clipped
+    em.inputs[0].default_value = (*NEON, 1)  # stays red when clipped
     nt.links.new(em.outputs[0], out_.inputs[0])
     for sl in c.material_slots:
         sl.link = "OBJECT"
@@ -445,9 +445,9 @@ def apply_vis():
                 o.keyframe_insert("hide_render", frame=b + 1)
 
 
-ORANGE = (0.95, 0.23, 0.012)
+ORANGE = (0.95, 0.045, 0.012)
 BLACK = (0.014, 0.014, 0.017)
-NEON = (1.0, 0.1, 0.004)
+NEON = (1.0, 0.02, 0.004)
 WHITE = (0.92, 0.92, 0.92)
 DARK = (0.04, 0.05, 0.07)
 STEEL = (0.25, 0.27, 0.3)
@@ -607,7 +607,7 @@ def make_floors(name, count, w=18.0, hole=6.0, fh=3.5, parent=None):
                 mb.box((x, y, -fh / 2), (0.5, 0.5, fh))
                 mb.box((y, x, -fh / 2), (0.5, 0.5, fh))
         mb.cur = CONCRETE
-        for sx in (-1, 1):                                     # orange safety barrier
+        for sx in (-1, 1):                                     # red safety barrier
             mb.beam((sx * (w / 2 - 0.1), -w / 2, 1.0), (sx * (w / 2 - 0.1), w / 2, 1.0), 0.07, ORANGE)
             mb.beam((-w / 2, sx * (w / 2 - 0.1), 1.0), (w / 2, sx * (w / 2 - 0.1), 1.0), 0.07, ORANGE)
             mb.beam((sx * (w / 2 - 0.1), -w / 2, 0.55), (sx * (w / 2 - 0.1), w / 2, 0.55), 0.05, BLACK)
@@ -821,7 +821,7 @@ def car(mb_, x, y, c, along=1):
 for x in (-96, -70, -38, -9, 30, 58, 90, 120):
     car(mb, x, -44.6, random.choice(CAR_COLS))
 
-# hoarding: black panels with an orange band, open at the front so the crew stays visible
+# hoarding: black panels with a red band, open at the front so the crew stays visible
 for a_, b_ in [((-42, 35), (42, 35)), ((-42, -35), (-42, 35)), ((42, -35), (42, 35))]:
     d_ = Vector(b_) - Vector(a_)
     n_ = int(d_.length / 4)
